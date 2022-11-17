@@ -1,7 +1,7 @@
 import './Navbar.scss'
 import LogoR from '../../assets/Backyard-logo-red.png';
 import { useState } from 'react';
-import MobileMenu from './MobileMenu/MobileMenu';
+import MobileMenu from '../MobileMenu/MobileMenu';
 
 function Navbar() {
 

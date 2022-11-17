@@ -1,9 +1,11 @@
+import './MobileMenu.scss'
+
 function MobileMenu () {
 
     return(
         <div className='mobileMenu'>
                 <div className='mobileMenu__option--container'>
-                    <p className='mobileMenu__option modBold'>discover</p>
+                    <p className='mobileMenu__option active'>discover</p>
                     <p className='mobileMenu__option'>artists</p>
                     <p className='mobileMenu__option'>venues</p>
                     <p className='mobileMenu__option'>shows</p>

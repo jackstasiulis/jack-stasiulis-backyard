@@ -1,0 +1,43 @@
+@use '../../Styles/variables.scss' as *;
+@use '../../Styles/mixins.scss' as *;
+
+
+.card{
+    margin: 2rem auto;
+    width: 85%;
+    height: 13rem;
+    background: rgb(245, 245, 245, 0.6);
+    border-radius: 10px;
+    display: flex;
+
+    &__img{
+        height: 8rem;
+        margin: 1rem 1rem 0;
+        border-radius: 10px;
+
+        &--container{
+
+        }
+    }
+
+    &__text{
+        &--label{
+            margin-top: 1rem;
+            color: $BYRed;
+
+            &__artist{
+                color: $BYRed;
+            }
+        }
+        &--detail{
+            font-weight: 900;
+            color: $BYBlue;
+        }
+        &--artist{
+            font-size: 1.3rem;
+            &__container{
+                margin-left: 1rem;
+            }
+        }
+    }
+}

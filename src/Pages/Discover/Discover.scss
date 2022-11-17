@@ -1,0 +1,7 @@
+@use '../../Styles/variables.scss' as *;
+@use '../../Styles/mixins.scss' as *;
+
+body{
+    background-image: url(../../assets/Map-background-placeholder.jpg);
+    background-repeat: no-repeat;
+}
