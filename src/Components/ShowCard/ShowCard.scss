@@ -4,16 +4,41 @@
 
 .card{
     margin: 2rem auto;
-    width: 85%;
+    // width: 85%;
+    width: 27rem;
     height: 13rem;
     background: rgb(245, 245, 245, 0.6);
     border-radius: 10px;
     display: flex;
+    justify-content: space-around;
+    // z-index: -100;
+
+    &:hover .overlay{
+        background: rgb(0, 0, 0, 0.5);
+    }
+
+    @include tablet{
+        flex-direction: column;
+        align-items: center;
+        width: 13rem;
+        height: 27rem;
+        padding: 0rem 1rem;
+        margin-top: 0;
+    }
+    @include desktop{
+        margin: 2rem 2rem;
+    }
+
 
     &__img{
         height: 8rem;
         margin: 1rem 1rem 0;
         border-radius: 10px;
+
+        @include tablet {
+            height: 9rem;
+            margin-top: 0;
+        }
 
         &--container{
 
@@ -21,6 +46,14 @@
     }
 
     &__text{
+        @include tablet{
+            margin-right: 1rem;
+            margin-top: -2rem;
+        }
+
+
+
+
         &--label{
             margin-top: 1rem;
             color: $BYRed;
@@ -39,5 +72,48 @@
                 margin-left: 1rem;
             }
         }
+    }
+    &__rsvp{
+        border: none;
+        margin-top: 0.5rem;
+        margin-left: 8rem;
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: $BYWhite;
+        background-color: $BYRed;
+    }
+
+    &__category{
+        width: 10rem;
+        border: none;
+        border-radius: 3px;
+        background: $BYBlue;
+        color: $BYWhite;
+        font-size: 1rem;
+        padding: 0.3rem;
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+
+        @include tablet{
+            // margin-left: 2.7rem;
+        }
+    }
+}
+
+.overlay{
+    transition: all 0.4s ease;
+    position: absolute;
+    width: 27rem;
+    height: 13rem;
+    background: rgb(0, 0, 0, 0);
+    border-radius: 10px;
+
+    @include tablet{
+        // flex-direction: column;
+        // justify-content: last baseline;
+        width: 13rem;
+        height: 27rem;
+        padding: 0rem 1rem;
+        // margin-top: 0;
     }
 }

@@ -1,13 +1,32 @@
-import ShowCard from '../../Components/ShowCard/ShowCard';
 import './Discover.scss';
+import axios from 'axios';
+import ShowCard from '../../Components/ShowCard/ShowCard';
+
 
 function Discover () {
     
+
+
+
     return(
-        <body>
-            <ShowCard />
-            <ShowCard />
-        </body>
+
+        <main>
+                <div className='tablet__wrapper'>
+                    <ShowCard />
+                    <ShowCard />
+                    <ShowCard />
+                    <ShowCard />
+                    <ShowCard />
+                    <ShowCard />
+                    <ShowCard />
+                    <ShowCard />
+                    <ShowCard />
+                    <ShowCard />
+                    <ShowCard />
+                    <ShowCard />
+                </div>
+        </main>
+        
         
     )
 }

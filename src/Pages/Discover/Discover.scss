@@ -2,6 +2,22 @@
 @use '../../Styles/mixins.scss' as *;
 
 body{
-    background-image: url(../../assets/Map-background-placeholder.jpg);
+    // background-image: url(../../assets/Map-background-placeholder.jpg);
     background-repeat: no-repeat;
+    
+    // margin: 1rem;
+    
+}
+
+.tablet__wrapper{
+
+    @include tablet{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    @include desktop{
+        margin-top: -3rem;
+    }
 }
