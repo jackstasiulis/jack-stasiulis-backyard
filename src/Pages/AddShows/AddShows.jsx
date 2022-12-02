@@ -10,7 +10,22 @@ function AddShows () {
 
         <main>
                 <div className=''>
-                
+
+                    <form action="">
+                        
+
+
+
+
+                    </form>
+
+
+
+
+
+
+
+
                 </div>
         </main>
         
