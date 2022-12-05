@@ -42,8 +42,8 @@ function Discover (props) {
                         props.allShows.map((singleShow) => (
                             <Link to={`/shows/${singleShow.show_id}`}>
                             <ShowCard
-                            // key={singleShow.show_id}
-                            // show_id={singleShow.show_id}
+                            key={singleShow.show_id}
+                            show_id={singleShow.show_id}
                             // image={singleShow.image}
                             artist={singleShow.artist}
                             date={singleShow.date}

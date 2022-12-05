@@ -16,16 +16,19 @@
         left: 0;
     }
     &__option{
+        background: local;
         font-size: 1.5rem;
         color: $BYWhite;
         max-width: fit-content;
         margin-top: 2rem;
+        border: none;
         &.modBold{
             font-weight: 900;
         }
         &.active{
             font-weight: 900;
             background: $BYRed;
+            
         }
         &:hover{
             background: $BYRed;

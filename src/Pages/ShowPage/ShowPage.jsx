@@ -1,10 +1,11 @@
 import './ShowPage.scss';
 import axios from 'axios';
-import ShowCard from '../../Components/ShowCard/ShowCard';
+// import ShowCard from '../../Components/ShowCard/ShowCard';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import ShowCardLarge from '../../Components/ShowCardLarge/ShowCardLarge';
 
 
 function ShowPage () {
@@ -39,7 +40,7 @@ function ShowPage () {
                        showData && 
                             // console.log(showData)
    
-                            <ShowCard
+                            <ShowCardLarge
                             key={showData.show_id}
                             // show_id={singleShow.show_id}
                             // image={singleShow.image}

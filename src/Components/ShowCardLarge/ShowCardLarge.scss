@@ -2,29 +2,38 @@
 @use '../../Styles/mixins.scss' as *;
 
 
-.card{
+.cardLarge{
     margin: 2rem auto;
     width: 27rem;
-    height: 13rem;
-    background: rgb(245, 245, 245, 0.6);
+    height: auto;
+    background: rgb(220, 245, 245, 0.6);
     border-radius: 10px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    // justify-content: space-around;
 
-    &:hover .overlay{
-        background: rgb(0, 0, 0, 0.5);
-    }
+    // &:hover .overlay{
+    //     background: rgb(0, 0, 0, 0.5);
+    // }
 
     @include tablet{
-        flex-direction: column;
-        align-items: center;
-        width: 13rem;
-        height: 27rem;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     width: 13rem;
+    //     height: 27rem;
         padding: 0rem 1rem;
-        margin-top: 0;
+        // margin-top: 4rem;
     }
     @include desktop{
-        margin: 2rem 2rem;
+    //     margin: 2rem 2rem;
+    }
+
+    &__wrapper{
+        display: flex;
+        // flex-direction: column;
+        @include tablet{
+            margin-top: 2rem;
+        }
     }
 
 
@@ -46,9 +55,8 @@
     &__text{
         @include tablet{
             margin-right: 1rem;
-            margin-top: -2rem;
+            margin-top: -1rem;
         }
-
 
         &--label{
             margin-top: 1rem;
@@ -56,6 +64,12 @@
 
             &__artist{
                 color: $BYRed;
+            }
+            &__comments{
+                margin-top: 1rem;
+                color: $BYRed;
+                font-weight: 700;
+                font-size: 1.2rem;
             }
         }
         &--detail{
@@ -67,6 +81,12 @@
             &__container{
                 margin-left: 1rem;
             }
+        }
+        &--lower{
+            margin-left: 1rem;
+        }
+        &--comments{
+            margin-left: 1rem;
         }
     }
     &__rsvp{
@@ -91,6 +111,31 @@
         margin-left: 1rem;
 
         @include tablet{
+        }
+    }
+    &__comment{
+        display: flex;
+        // margin-bottom: 1rem;
+        margin: 1rem 0;
+
+        &--name{
+            margin-right: 0.7rem;
+            font-weight: 700;
+            color: $BYBlue;
+        }
+        &--body{
+
+        }
+        &--input{
+            background: $BYBlue;
+            color: $BYWhite;
+            margin-left: 3rem;
+            margin-right: 1rem;
+            width: 100%;
+            padding: 0.5rem;
+            border: 2px solid $BYBlue;
+            border-radius: 8px;
+            outline: none;
         }
     }
 }
