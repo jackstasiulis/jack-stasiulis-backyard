@@ -35,23 +35,21 @@ function ShowPage () {
 
     return(
 
-        <div>
-             {
-                       showData && 
-                            // console.log(showData)
-   
-                            <ShowCardLarge
-                            key={showData.show_id}
-                            // show_id={singleShow.show_id}
-                            // image={singleShow.image}
-                            artist={showData.artist}
-                            date={showData.date}
-                            venue={showData.venue}
-                            address={showData.address}
-                            doors={showData.doors}
-                            genre={showData.genre}
-                             />
-                    }
+        <div className='showpage'>
+            <div>
+                {showData && 
+                <ShowCardLarge
+                key={showData.show_id}
+                show_id={showData.show_id}
+                image={showData.image}
+                artist={showData.artist}
+                date={showData.date}
+                venue={showData.venue}
+                address={showData.address}
+                doors={showData.doors}
+                genre={showData.genre}
+                    />}
+            </div>
         </div>
         
         

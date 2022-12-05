@@ -3,10 +3,10 @@
 
 
 .cardLarge{
-    margin: 2rem auto;
+    margin: -2rem 2rem 2rem;
     width: 27rem;
     height: auto;
-    background: rgb(220, 245, 245, 0.6);
+    background: rgb(245, 245, 245, 0.6);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -108,7 +108,7 @@
         font-size: 1rem;
         padding: 0.3rem;
         margin-top: 0.5rem;
-        margin-left: 1rem;
+        margin-left: 0rem;
 
         @include tablet{
         }

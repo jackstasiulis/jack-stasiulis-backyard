@@ -11,7 +11,7 @@ function MobileMenu () {
                     {/* <Link to={discover}><p className='mobileMenu__option active'>discover</p></Link> */}
 
                     <NavLink to='/' className={({isActive}) => 
-                            'mobileMenu__option' + (isActive || window.location.pathname === '/' ? '--active' : null)
+                            'mobileMenu__option' + (isActive || window.location.pathname === '/' ? ' active' : null)
                             }><button className='mobileMenu__option'>discover</button>
                         </NavLink>
 

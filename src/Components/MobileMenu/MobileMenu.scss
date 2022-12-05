@@ -16,7 +16,7 @@
         left: 0;
     }
     &__option{
-        background: local;
+        background: inherit;
         font-size: 1.5rem;
         color: $BYWhite;
         max-width: fit-content;
@@ -28,6 +28,7 @@
         &.active{
             font-weight: 900;
             background: $BYRed;
+            // font-size: 10rem;
             
         }
         &:hover{
