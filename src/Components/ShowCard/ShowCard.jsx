@@ -4,7 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import detailsArrow from '../../assets/turn-left-arrow-symbol-svg-png-icon-download-35.png';
 
 
-function ShowCard () {
+function ShowCard (props) {
+
+
+                            // show_id={singleShow.show_id}
+                            // image={singleShow.image}
+                            // artist={singleShow.artist}
+                            // date={singleShow.date}
+                            // venue={singleShow.venue}
+                            // address={singleShow.address}
+                            // doors={singleShow.doors}
+                            // genre={singleShow.genre}
 
 
 // const nav = useNavigate();
@@ -26,20 +36,20 @@ function ShowCard () {
                 
                     <div className='card__text--artist__container'>
                         <p className='card__text--label__artist'>ARTIST</p>
-                        <h4 className='card__text--artist'>Seeing Strangers</h4>
+                        <h4 className='card__text--artist'>{props.artist}</h4>
                     </div>
             
                 </div>
 
                 <div className='card__text'>
                     <p className='card__text--label'>DATE</p>
-                    <p className='card__text--detail'>Feb, 23 2023</p>
+                    <p className='card__text--detail'>{props.date}</p>
                     <p className='card__text--label'>VENUE</p>
-                    <p className='card__text--detail'>The Biltmore Cabaret</p>
+                    <p className='card__text--detail'>{props.venue}</p>
                     <p className='card__text--label'>DOORS</p>
-                    <p className='card__text--detail'>7:00 PM</p>
+                    <p className='card__text--detail'>{props.doors}</p>
                     
-                    <button className='card__category'>Hip Hop / R & B</button>
+                    <button className='card__category'>{props.genre}</button>
                     {/* <img className='card__detailsArrow' src={detailsArrow} alt="" /> */}
 
                     {/* <button className='card__rsvp'>RSVP</button> */}
