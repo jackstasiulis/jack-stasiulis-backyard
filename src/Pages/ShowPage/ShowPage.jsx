@@ -35,7 +35,6 @@ function ShowPage () {
     return(
 
         <div>
-            <div>
              {
                        showData && 
                             // console.log(showData)
@@ -51,11 +50,7 @@ function ShowPage () {
                             doors={showData.doors}
                             genre={showData.genre}
                              />
-                     
-                        
                     }
-
-            </div>
         </div>
         
         

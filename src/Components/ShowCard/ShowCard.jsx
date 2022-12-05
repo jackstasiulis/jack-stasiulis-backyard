@@ -1,28 +1,8 @@
 import './ShowCard.scss';
 import seeingStrangers from '../../assets/seeingStrangers.png';
 import { useNavigate } from 'react-router-dom';
-import detailsArrow from '../../assets/turn-left-arrow-symbol-svg-png-icon-download-35.png';
-
 
 function ShowCard (props) {
-
-
-                            // show_id={singleShow.show_id}
-                            // image={singleShow.image}
-                            // artist={singleShow.artist}
-                            // date={singleShow.date}
-                            // venue={singleShow.venue}
-                            // address={singleShow.address}
-                            // doors={singleShow.doors}
-                            // genre={singleShow.genre}
-
-
-// const nav = useNavigate();
-
-// const showNav = (event) => {
-//     event.preventDefault();
-//     nav('/show/:id')
-// }
 
     return(
 
@@ -50,9 +30,6 @@ function ShowCard (props) {
                     <p className='card__text--detail'>{props.doors}</p>
                     
                     <button className='card__category'>{props.genre}</button>
-                    {/* <img className='card__detailsArrow' src={detailsArrow} alt="" /> */}
-
-                    {/* <button className='card__rsvp'>RSVP</button> */}
 
                 </div>
             </div>
