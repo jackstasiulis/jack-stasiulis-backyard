@@ -35,29 +35,27 @@ function ShowPage () {
     return(
 
         <div>
+            <div>
              {
-                        showData.map((singleShow) => (
+                       showData && 
                             // console.log(showData)
-                            <Link to={`/shows/${singleShow.show_id}`}>
+   
                             <ShowCard
-                            key={singleShow.show_id}
+                            key={showData.show_id}
                             // show_id={singleShow.show_id}
                             // image={singleShow.image}
-                            artist={singleShow.artist}
-                            date={singleShow.date}
-                            venue={singleShow.venue}
-                            address={singleShow.address}
-                            doors={singleShow.doors}
-                            genre={singleShow.genre}
+                            artist={showData.artist}
+                            date={showData.date}
+                            venue={showData.venue}
+                            address={showData.address}
+                            doors={showData.doors}
+                            genre={showData.genre}
                              />
-                            </Link>
-                        ))
+                     
+                        
                     }
 
-
-                    {/* {
-                         <ShowCard artist={props.showData.artist} />
-                    } */}
+            </div>
         </div>
         
         
