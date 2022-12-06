@@ -6,7 +6,7 @@ function Carousel ({slides}) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const slideStyle = {
-        backgroundImage: `(${slides[currentIndex].url})`
+        backgroundImage: `url(${slides[currentIndex].url})`
     }
 
 
