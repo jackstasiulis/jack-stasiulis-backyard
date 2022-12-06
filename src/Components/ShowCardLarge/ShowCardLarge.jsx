@@ -5,6 +5,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { v4 as uuidv4 } from "uuid";
+import toast from 'react-hot-toast'
 
 function ShowCardLarge (props) {
 
@@ -39,7 +40,8 @@ function ShowCardLarge (props) {
                 showId
             );
             e.target.commentText.value = '';
-            alert("awesome, comment posted")
+            // alert("awesome, comment posted")
+            toast.success('Comment posted');
         };
     }
 

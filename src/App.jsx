@@ -8,6 +8,7 @@ import AddShows from './Pages/AddShows/AddShows';
 import ShowPage from './Pages/ShowPage/ShowPage';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast'
 
 
 function App() {
@@ -51,6 +52,18 @@ function App() {
     <BrowserRouter>
       <main className="App">
         <Navbar />
+        <Toaster 
+        position='top-left'
+        toastOptions={{
+          icon:'X',
+          style: {
+            background: '#262626',
+            color: '#AA0000',
+            fontWeight: '700'
+
+          }
+        }}
+         />
         <Routes>
 
             <Route path='/' element={<Discover allShows={allShows} />} />

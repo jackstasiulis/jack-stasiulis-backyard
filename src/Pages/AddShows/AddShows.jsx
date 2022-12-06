@@ -8,9 +8,9 @@ function AddShows () {
 
     return(
 
-        <main>
+        <>
                 <div className=''>
-
+                    
                     <form action="">
                         
 
@@ -27,7 +27,7 @@ function AddShows () {
 
 
                 </div>
-        </main>
+        </>
         
         
     )
