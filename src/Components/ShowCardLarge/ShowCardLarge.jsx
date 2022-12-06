@@ -1,8 +1,30 @@
 import './ShowCardLarge.scss';
 import seeingStrangers from '../../assets/seeingStrangers.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function ShowCardLarge (props) {
+
+    const { showId } = useParams();
+    const [allComments, setAllComments] = useState([])
+
+
+    function getComments () {
+        axios
+        .get(`http://localhost:5050/shows/${showId}/comments`)
+        .then(response => {
+            setAllComments(response.data)
+        })
+        .catch((err) => console.log(err));
+    }
+    
+    useEffect(() => {
+        getComments();
+    },[])
+
+
 
     return(
             
@@ -35,13 +57,29 @@ function ShowCardLarge (props) {
                 
                 <div className='cardLarge__text--lower'>
                     <p className='cardLarge__text--label'>ABOUT</p>
-                    <p className='cardLarge__text--detail--description'>this is a description sample text. this is a description sample text. this is a description sample text. instagram @seeingstrangersmusic</p>
+                    <p className='cardLarge__text--detail--description'>{props.description}</p>
                 </div>
 
                 <div className='cardLarge__text--comments'>
                     <p className='cardLarge__text--label__comments'>COMMENTS</p>
 
-                    <div className='cardLarge__comment'>
+
+                {
+                    allComments.length > 0 ? (
+                        allComments.map((singleComment) => (
+                            <div className='cardLarge__comment'
+                            username={singleComment.name}
+                            comments_body={singleComment.comments_body}
+                            >
+                                <p className='cardLarge__comment--name'>{singleComment.username}</p>
+                                <p className='cardLarge__comment--body'>{singleComment.comments_body}</p>
+                            </div>
+                        ))
+                    ) : (<p className='cardLarge__comment--name__noComment'>no comments just yet...</p>)
+                }
+                    
+
+                    {/* <div className='cardLarge__comment'>
                         <p className='cardLarge__comment--name'>username</p>
                         <p className='cardLarge__comment--body'>sample comment. blah blah blah. blah blah blah. blah blah blah. blah blah blah. blah blah blah. blah blah blah. </p>
                     </div>
@@ -49,12 +87,7 @@ function ShowCardLarge (props) {
                     <div className='cardLarge__comment'>
                         <p className='cardLarge__comment--name'>username</p>
                         <p className='cardLarge__comment--body'>sample comment. blah blah blah. blah blah blah. blah blah blah. blah blah blah. blah blah blah. blah blah blah. </p>
-                    </div>
-
-                    <div className='cardLarge__comment'>
-                        <p className='cardLarge__comment--name'>username</p>
-                        <p className='cardLarge__comment--body'>sample comment. blah blah blah. blah blah blah. blah blah blah. blah blah blah. blah blah blah. blah blah blah. </p>
-                    </div>
+                    </div> */}
 
 
                     <div className='cardLarge__comment'>

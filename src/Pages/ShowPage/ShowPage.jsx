@@ -32,6 +32,23 @@ function ShowPage () {
     }, []);
 
 
+    
+    // const [allComments, setAllComments] = useState([])
+
+    // function getComments () {
+    //     axios
+    //     .get(`http://localhost:5050/shows/${showId}/comments`)
+    //     .then(response => {
+    //         setAllComments(response.data)
+    //     })
+    //     .catch((err) => console.log(err));
+    // }
+
+    // useEffect(() => {
+    //     getComments();
+    // },[])
+
+
 
     return(
 
@@ -48,7 +65,8 @@ function ShowPage () {
                 address={showData.address}
                 doors={showData.doors}
                 genre={showData.genre}
-                    />}
+                description={showData.description}
+                />}
             </div>
         </div>
         
