@@ -3,33 +3,19 @@ import axios from 'axios';
 import ShowCard from '../../Components/ShowCard/ShowCard';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Carousel from '../../Components/Carousel/Carousel';
+
+// import seeingStrangers from 
 
 
 function Discover (props) {
     
-    // const[activeShow, setActiveShow] = useState([]);
-
-//MOVE AXIOS CALL TO APP THEN PASS STATE VAR TO BOTH DISCOVER AND SHOW PAGE
-
-    // const [allShows, setAllShows] = useState([])
-
-
-    // function getShows () {
-    //     axios
-    //     .get(`http://localhost:5050/shows/`)
-    //     .then(response => {
-    //         setAllShows(response.data)
-    //     })
-    //     .catch((err) => console.log(err));
-    // }
-    // useEffect(() => {
-    //     getShows();
-    // },[])
-
-    // function getSingleShow (showId) {
-    //     axios
-    //         .get(`http://localhost:5050/shows/`)
-    // }
+const slides = [
+    {url: '../../assets/seeingstrangers.png'},
+    {url: '../../assets/seeingstrangers.png'},
+    {url: '../../assets/seeingstrangers.png'},
+    {url: '../../assets/seeingstrangers.png'}
+]
     
     
 
@@ -37,7 +23,14 @@ function Discover (props) {
     return(
 
         <main>
+
+            <div className='carousel' >
+                <Carousel slides={slides} />
+            </div>
+
+
                 <div className='tablet__wrapper'>
+
                     {
                         props.allShows.map((singleShow) => (
                             <Link to={`/shows/${singleShow.show_id}`}>

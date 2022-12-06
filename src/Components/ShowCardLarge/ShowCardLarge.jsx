@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { v4 as uuidv4 } from "uuid";
 
 function ShowCardLarge (props) {
 
@@ -24,6 +25,42 @@ function ShowCardLarge (props) {
         getComments();
     },[])
 
+
+    function formValidation (e) {
+        e.preventDefault();
+        // console.log(e.target.commentText.value)
+        if(!e.target.commentText.value) {
+            alert('Please fill in your comment!')
+        } else {
+            addComments(
+                uuidv4(),
+                e.target.commentText.value,
+                'hello',
+                showId
+            );
+            e.target.commentText.value = '';
+            alert("awesome, comment posted")
+        };
+    }
+
+    function addComments (comments_id, commentText, username, showId) {
+
+        const newComment = {
+            comments_id: parseInt(comments_id),
+            comments_body: commentText,
+            username: username,
+            likes: 0,
+            show_id: parseInt(showId)
+        }
+        console.log(newComment)
+        axios
+        .post(`http://localhost:5050/shows/${showId}/comments/`, newComment)
+        // console.log(newComment)
+        .then((res) => {
+            getComments();
+        })
+        .catch((err) => console.log('www', err))
+    }
 
 
     return(
@@ -66,8 +103,9 @@ function ShowCardLarge (props) {
 
                 {
                     allComments.length > 0 ? (
-                        allComments.map((singleComment) => (
+                        allComments.map((singleComment, i) => (
                             <div className='cardLarge__comment'
+                            key={i}
                             username={singleComment.name}
                             comments_body={singleComment.comments_body}
                             >
@@ -90,9 +128,9 @@ function ShowCardLarge (props) {
                     </div> */}
 
 
-                    <div className='cardLarge__comment'>
-                        <input className='cardLarge__comment--input' type="text" placeholder='enter comment' />
-                    </div>
+                    <form className='cardLarge__comment' onSubmit={formValidation}>
+                        <input className='cardLarge__comment--input' type="text" placeholder='enter comment' name='commentText' />
+                    </form>
                 </div>
 
             </div>

@@ -45,7 +45,7 @@ function Navbar() {
     };
 
     return(
-        <body>
+        <>
             
             <MobileMenu />
 
@@ -93,7 +93,7 @@ function Navbar() {
 
 
 
-        </body>
+        </>
     )
 }
 
