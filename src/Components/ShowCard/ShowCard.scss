@@ -11,6 +11,7 @@
     border-radius: 10px;
     display: flex;
     justify-content: space-around;
+    // gap: 1rem;
     // z-index: -100;
 
     &:hover .overlay{
@@ -27,6 +28,14 @@
     }
     @include desktop{
         margin: 2rem 2rem;
+    }
+    &__wrapper{
+        @include tablet{
+            margin: 0 1rem;
+        }
+        @include desktop{
+            margin: inherit;
+        }
     }
 
 
@@ -47,7 +56,7 @@
 
     &__text{
         @include tablet{
-            margin-right: 1rem;
+            // margin-right: 1rem;
             margin-top: -2rem;
         }
 

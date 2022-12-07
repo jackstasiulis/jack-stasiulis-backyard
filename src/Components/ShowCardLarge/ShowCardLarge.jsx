@@ -46,13 +46,12 @@ function ShowCardLarge (props) {
     }
 
     function addComments (comments_id, commentText, username, showId) {
-
         const newComment = {
-            comments_id: parseInt(comments_id),
+            comments_id: comments_id,
             comments_body: commentText,
             username: username,
             likes: 0,
-            show_id: parseInt(showId)
+            show_id: showId
         }
         console.log(newComment)
         axios
@@ -78,6 +77,8 @@ function ShowCardLarge (props) {
                         <div className='cardLarge__text--artist__container'>
                             <p className='cardLarge__text--label__artist'>ARTIST</p>
                             <h4 className='cardLarge__text--artist'>{props.artist}</h4>
+                            <p className='cardLarge__text--label'>Address</p>
+                            <p className='cardLarge__text--detail'>{props.address}</p>
                         </div>
                 
                     </div>
@@ -89,6 +90,7 @@ function ShowCardLarge (props) {
                         <p className='cardLarge__text--detail'>{props.venue}</p>
                         <p className='cardLarge__text--label'>DOORS</p>
                         <p className='cardLarge__text--detail'>{props.doors}</p>
+                        
                         
                         <button className='cardLarge__category'>{props.genre}</button>
                     </div>

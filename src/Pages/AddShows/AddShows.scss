@@ -1,27 +1,164 @@
 @use '../../Styles/variables.scss' as *;
 @use '../../Styles/mixins.scss' as *;
 
+.addShows{
+
+    &__wrapper{
+        @include tablet{
+            display: flex;
+
+        }
+        
+    }
+}
+
 .form{
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    
+    &__title{
+        text-align: center;
+        margin: -1rem 2rem 3rem;
+        font-size: 2rem;
+        color: $BYRed;
+        // background: $BYWhite;
+        // width: 19rem;
+        @include desktop{
+            margin: -3rem 2rem 3rem;
+            font-size: 3rem;
+            text-align: inherit;
+
+        }
+    }
     &__container{
-        margin: -2rem 2rem 2rem;
+        margin: -2rem auto 2rem;
         width: 27rem;
         height: auto;
-        background: rgb(245, 245, 245, 0.6);
+        background: rgb(245, 245, 245, 0.25);
         border-radius: 10px;
         display: flex;
         flex-direction: column;
+        background-image: url(../../assets/Backyard-logo-black.png);
+
+        // &::before{
+        //     content: "";
+        //     background-image: url(../../assets/Backyard-logo-white.png);
+        //     // background-size: cover;
+        //     position: relative;
+        //     top: 0px;
+        //     right: 0px;
+        //     bottom: 0px;
+        //     left: 0px;
+        //     opacity: 0.2;
+        //     z-index: -1000;
+
+        // }
+        @include tablet{
+            width: 48rem;
+            margin: -2rem 2rem 2rem;
+        }
+    }
+    &__cont{
+        display: flex;
+        gap: 2rem;
+    }
+    &__subCont{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+    &__label{
+        // width: fit-content;
+        font-size: 1.2rem;
+        font-weight: 700;
+        // background-color: $BYBlack;
+        color: $BYWhite;
+        margin: 0.6rem 0 0.2rem;
+    }
+    &__input{
+        height: 1.4rem;
+        background: $BYBlue;
+        color: $BYWhite;
+        padding: 0.5rem;
+        border: 2px solid $BYBlue;
+        border-radius: 8px;
+        outline: none;
+        @include tablet{
+            height: inherit;
+        }
+    }
+    &__textArea{
+        resize: none;
+        margin-bottom: 1rem;
+        height: 2rem;
+        @include tablet{
+            height: inherit;
+        }
     }
     &__button{
-        margin: 0.4rem;
-        padding: 0.5rem;
+        background-color: $BYRed;
+        border: none;
+        height: 2rem;
+        width: 5rem;
+        border-radius: 5px;
+        font-weight: 700;
+        color: $BYWhite;
+        
         &--container{
-            text-align: center;
-        }
-        &--submit{
-            height: 2rem;
+            display: flex;
+            justify-content: flex-end;
         }
     }
+
+
+.radio-toolbar {
+    text-align: center ;
+    margin: 10px;
 }
+
+.radio-toolbar input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.radio-toolbar label {
+    margin: 0.2rem;
+    display: inline-block;
+    background-color: $BYBlue;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    color: $BYWhite;
+}
+
+.radio-toolbar label:hover {
+  background-color: $BYRed;
+}
+
+.radio-toolbar input[type="radio"]:focus + label {
+    background-color: $BYWhite;
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: $BYRed;
+}
+
+
+    
+}
+
+
+// &--input{
+//     background: $BYBlue;
+//     color: $BYWhite;
+//     margin-left: 0rem;
+//     margin-right: 1rem;
+//     width: 100%;
+//     padding: 0.5rem;
+//     border: 2px solid $BYBlue;
+//     border-radius: 8px;
+//     outline: none;
+// }

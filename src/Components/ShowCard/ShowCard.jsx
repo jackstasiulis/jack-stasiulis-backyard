@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function ShowCard (props) {
 
     return(
-
+        <div className='card__wrapper'>
             <div className='card'>
 
                 <div className='overlay'></div>
@@ -33,6 +33,7 @@ function ShowCard (props) {
 
                 </div>
             </div>
+        </div>
 
     )
 }

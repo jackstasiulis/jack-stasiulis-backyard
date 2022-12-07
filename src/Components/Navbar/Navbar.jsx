@@ -47,7 +47,7 @@ function Navbar() {
     return(
         <>
             
-            <MobileMenu />
+            <MobileMenu toggleHam={toggleHam} />
 
             <nav className='navbar'>
                 <div className="hamburgermenu__container">
@@ -84,7 +84,7 @@ function Navbar() {
                         <button className='navbar__menu__option modHide'>hidden</button>
                     </div>
                 </div>
-
+                
                 <img className='navbar__logo' src={LogoR} alt="" />
 
             </nav>

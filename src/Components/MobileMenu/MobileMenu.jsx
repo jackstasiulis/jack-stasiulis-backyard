@@ -1,7 +1,7 @@
 import './MobileMenu.scss'
 import { NavLink } from 'react-router-dom';
 
-function MobileMenu () {
+function MobileMenu ({toggleHam}) {
 
     return(
         <div className='mobileMenu'>
@@ -12,16 +12,33 @@ function MobileMenu () {
 
                     <NavLink to='/' className={({isActive}) => 
                             'mobileMenu__option' + (isActive || window.location.pathname === '/' ? ' active' : null)
-                            }><button className='mobileMenu__option'>discover</button>
+                            }><button onClick={toggleHam} className='mobileMenu__option'>discover</button>
                         </NavLink>
 
+                    
 
-                    <p className='mobileMenu__option'>artists</p>
-                    <p className='mobileMenu__option'>venues</p>
-                    <p className='mobileMenu__option'>shows</p>
-                    <p className='mobileMenu__option'>profile</p>
-                    <p className='mobileMenu__option modBold'>sign in</p>
-                    <p className='mobileMenu__option'>about</p>
+
+
+
+                    <p onClick={toggleHam} className='mobileMenu__option'>artists</p>
+
+
+
+
+                    <p onClick={toggleHam} className='mobileMenu__option'>venues</p>
+
+
+                    {/* <p onClick={toggleHam} className='mobileMenu__option'>shows</p> */}
+
+                    <NavLink to='/addshows' className={({isActive}) => 
+                        'mobileMenu__option' + (isActive || window.location.pathname === '/addshows' ? ' active' : null)
+                        }><button onClick={toggleHam} className='mobileMenu__option'>+shows</button>
+                    </NavLink>
+
+
+                    <p onClick={toggleHam} className='mobileMenu__option'>profile</p>
+                    <p onClick={toggleHam} className='mobileMenu__option modBold'>sign in</p>
+                    <p onClick={toggleHam} className='mobileMenu__option'>about</p>
                 </div>
             </div>
     )

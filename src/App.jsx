@@ -55,7 +55,7 @@ function App() {
         <Toaster 
         position='top-left'
         toastOptions={{
-          icon:'X',
+          icon:'∆',
           style: {
             background: '#262626',
             color: '#AA0000',
