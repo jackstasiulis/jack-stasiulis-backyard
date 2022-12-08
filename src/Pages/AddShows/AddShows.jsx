@@ -12,7 +12,7 @@ function AddShows () {
 
 function addShowForm (e) {
     e.preventDefault();
-    if( !e.target.image.value ||
+    if( !previewImage ||
         !e.target.artistText.value ||
         !e.target.dateText.value ||
         !e.target.venueText.value ||
@@ -25,7 +25,7 @@ function addShowForm (e) {
         }else{
             addShow(
                 uuidv4(),
-                e.target.image.value,
+                previewImage,
                 e.target.artistText.value,
                 e.target.dateText.value,
                 e.target.venueText.value,
@@ -34,9 +34,8 @@ function addShowForm (e) {
                 e.target.genreSelection.value,
                 e.target.descriptionText.value
             );
-                e.target.image.value = '';
+                // e.target.image.value = '';
                 e.target.artistText.value = '';
-                
                 e.target.dateText.value = '';
                 e.target.venueText.value = '';
                 e.target.addressText.value = '';
@@ -98,6 +97,13 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
 
     const [artistPreview, setArtistPreview] = useState();
     const [datePreview, setDatePreview] = useState();
+    const [venuePreview, setVenuePreview] = useState();
+    const [doorsPreview, setDoorsPreview] = useState();
+    const [genrePreview, setGenrePreview] = useState();
+
+
+
+
     
 
 
@@ -143,59 +149,59 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
                                     <label className='form__label' htmlFor="">Artist</label>
                                         <input className='form__input' type="text" placeholder='What is your artist name?' name='artistText' onChange={(e) => setArtistPreview(e.target.value)}/>
                                     <label className='form__label' htmlFor="">Date</label>
-                                        <input className='form__input' type="text" placeholder='Which date are you playing?' name='dateText' />
+                                        <input className='form__input' type="text" placeholder='Which date are you playing?' name='dateText' onChange={(e) => setDatePreview(e.target.value)}/>
                                     <label className='form__label' htmlFor="">Venue</label>
-                                        <input className='form__input' type="text" placeholder='What is the name of your venue?' name='venueText' />
+                                        <input className='form__input' type="text" placeholder='What is the name of your venue?' name='venueText' onChange={(e) => setVenuePreview(e.target.value)}/>
                                     <label className='form__label' htmlFor="">Address</label>
                                         <input className='form__input' type="text" placeholder='What is the street address?' name='addressText' />
                                 </div>
 
                                 <div className='form__subCont'>
                                     <label className='form__label' htmlFor="">Time</label>
-                                        <input className='form__input' type="text" placeholder='What time do the doors open?' name='doorsText' />
+                                        <input className='form__input' type="text" placeholder='What time do the doors open?' name='doorsText' onChange={(e) => setDoorsPreview(e.target.value)}/>
                                     <label className='form__label' htmlFor="">Choose a genre</label>
                                     
                                     <div className="radio-toolbar">
-                                        <input type="radio" id="HipHop" name="genreSelection" value="Hip Hop / R & B"/>
+                                        <input type="radio" id="HipHop" name="genreSelection" value="Hip Hop / R & B" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="HipHop">Hip Hop / R & B</label>
 
-                                        <input type="radio" id="Folk" name="genreSelection" value="Folk"/>
+                                        <input type="radio" id="Folk" name="genreSelection" value="Folk" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Folk">Folk</label>
 
-                                        <input type="radio" id="Rock" name="genreSelection" value="Rock"/>
+                                        <input type="radio" id="Rock" name="genreSelection" value="Rock" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Rock">Rock</label> 
 
-                                        <input type="radio" id="Rap" name="genreSelection" value="Rap"/>
+                                        <input type="radio" id="Rap" name="genreSelection" value="Rap" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Rap">Rap</label> 
 
-                                        <input type="radio" id="Acoustic" name="genreSelection" value="Acoustic"/>
+                                        <input type="radio" id="Acoustic" name="genreSelection" value="Acoustic" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Acoustic">Acoustic</label> 
 
-                                        <input type="radio" id="Electronic" name="genreSelection" value="Electronic"/>
+                                        <input type="radio" id="Electronic" name="genreSelection" value="Electronic" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Electronic">Electronic</label> 
 
-                                        <input type="radio" id="Country" name="genreSelection" value="Country"/>
+                                        <input type="radio" id="Country" name="genreSelection" value="Country" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Country">Country</label>
 
-                                        <input type="radio" id="Grunge" name="genreSelection" value="Grunge"/>
+                                        <input type="radio" id="Grunge" name="genreSelection" value="Grunge" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Grunge">Grunge</label> 
 
-                                        <input type="radio" id="Blues" name="genreSelection" value="Blues"/>
+                                        <input type="radio" id="Blues" name="genreSelection" value="Blues" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Blues">Blues</label> 
 
-                                        <input type="radio" id="Jazz" name="genreSelection" value="Jazz"/>
+                                        <input type="radio" id="Jazz" name="genreSelection" value="Jazz" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Jazz">Jazz</label> 
 
-                                        <input type="radio" id="Lo-Fi" name="genreSelection" value="Lo-Fi"/>
+                                        <input type="radio" id="Lo-Fi" name="genreSelection" value="Lo-Fi" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Lo-Fi">Lo-Fi</label> 
 
-                                        <input type="radio" id="Punk" name="genreSelection" value="Punk"/>
+                                        <input type="radio" id="Punk" name="genreSelection" value="Punk" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Punk">Punk</label> 
 
-                                        <input type="radio" id="Pop" name="genreSelection" value="Pop"/>
+                                        <input type="radio" id="Pop" name="genreSelection" value="Pop" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Pop">Pop</label> 
 
-                                        <input type="radio" id="Indie-Pop" name="genreSelection" value="Indie-Pop"/>
+                                        <input type="radio" id="Indie-Pop" name="genreSelection" value="Indie-Pop" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="Indie-Pop">Indie-Pop</label> 
                                     </div>
 
@@ -221,7 +227,12 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
 
                 <ShowCard 
                 image={previewImage}
-                artist={artistPreview} />
+                artist={artistPreview}
+                date={datePreview}
+                venue={venuePreview}
+                doors={doorsPreview}
+                genre={genrePreview}
+                 />
             </div>
         </>
         

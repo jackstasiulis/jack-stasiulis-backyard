@@ -72,7 +72,7 @@ function ShowCardLarge (props) {
                     
                 <div className='cardLarge__wrapper'>
                     <div className='cardLarge__img--container'>
-                        <img className='cardLarge__img' src={seeingStrangers} alt="" />
+                        <img className='cardLarge__img' src={props.image} alt="" />
                     
                         <div className='cardLarge__text--artist__container'>
                             <p className='cardLarge__text--label__artist'>ARTIST</p>

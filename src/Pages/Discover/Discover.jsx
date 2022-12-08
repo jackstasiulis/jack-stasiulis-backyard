@@ -35,7 +35,7 @@ const slides = [
                             <ShowCard
                             key={singleShow.show_id}
                             show_id={singleShow.show_id}
-                            // image={singleShow.image}
+                            image={singleShow.image}
                             artist={singleShow.artist}
                             date={singleShow.date}
                             venue={singleShow.venue}
