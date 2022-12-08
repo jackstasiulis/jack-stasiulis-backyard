@@ -12,7 +12,7 @@ function ShowCard (props) {
                     
                 
                 <div className='card__img--container'>
-                    <img className='card__img' src={seeingStrangers} alt="" />
+                    <img className='card__img' src={props.image} alt="" />
                 
                     <div className='card__text--artist__container'>
                         <p className='card__text--label__artist'>ARTIST</p>

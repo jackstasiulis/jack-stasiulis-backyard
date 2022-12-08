@@ -2,7 +2,10 @@ import './AddShows.scss';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { v4 as uuidv4 } from "uuid";
+import { useState } from 'react';
 import ShowCard from '../../Components/ShowCard/ShowCard'
+import CloudinaryUploadWidget from "../../Components/CloudinaryUploadWidget/CloudinaryUploadWidget";
+
 
 function AddShows () {
 
@@ -33,6 +36,7 @@ function addShowForm (e) {
             );
                 e.target.image.value = '';
                 e.target.artistText.value = '';
+                
                 e.target.dateText.value = '';
                 e.target.venueText.value = '';
                 e.target.addressText.value = '';
@@ -65,26 +69,79 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
         console.log(res.data)
     })
     .catch((err) => console.log('LLL', err))
+    }
+
+
+    const [imageSelected, setImageSelected] = useState('');
+    const [previewImage, setPreviewImage] = useState();
+
+    const uploadImage = (e) => {
+        e.preventDefault();
+        const formData = new FormData()
+        formData.append('file', imageSelected)
+        formData.append('upload_preset', 'ib0asolr')
+        formData.append('api_key', 252786561257121)
+        formData.append('timestamp', Date.now())
+        axios
+        .post('https://api.cloudinary.com/v1_1/do5k651qd/image/upload/', formData, {
+            // headers: {
+            //     "Content-Type": 'multipart/form-data; boundary=<calculated when request is sent>'
+            // },
+           
+        })
+        
+        .then((res) => {
+            console.log(res.data.url)
+            setPreviewImage(res.data.url)
+        }).catch((err) => console.log(err))
+    }
+
+    const [artistPreview, setArtistPreview] = useState();
+    const [datePreview, setDatePreview] = useState();
     
-}
+
 
 
     return(
 
         <>
+
             <h2 className='form__title'>Add a Show</h2>
 
+
+            
+
+            
                 <div className='addShows__wrapper'>
                     <div className='form__container'>
-                        
                         
                         <form className='form' action="" onSubmit={addShowForm}>
                             <div className='form__cont'>
                                 <div className='form__subCont'>
+
+                                    
+                                    {/* {previewImage && <img src={previewImage} alt="" />} */}
+
+
+
+
                                     <label className='form__label' htmlFor="">Cover Photo</label>
-                                        <input className='form__input' type="text" placeholder='Upload your cover photo' name='image'/>
+                                        {/* <input className='form__input' type="text" placeholder='Upload your cover photo' name='image'/> */}
+                                      
+                                        <div>
+                                            <input type="file" name='image' onChange={(e) => {
+                                                console.log(e.target.files[0]);
+                                                setImageSelected(e.target.files[0])
+                                                }}/>
+                                        </div>
+                                        <div>
+                                            <button className='form__button' onClick={uploadImage}>upload here</button>
+                                        </div>
+
+
+
                                     <label className='form__label' htmlFor="">Artist</label>
-                                        <input className='form__input' type="text" placeholder='What is your artist name?' name='artistText'/>
+                                        <input className='form__input' type="text" placeholder='What is your artist name?' name='artistText' onChange={(e) => setArtistPreview(e.target.value)}/>
                                     <label className='form__label' htmlFor="">Date</label>
                                         <input className='form__input' type="text" placeholder='Which date are you playing?' name='dateText' />
                                     <label className='form__label' htmlFor="">Venue</label>
@@ -118,7 +175,10 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
                                         <label htmlFor="Electronic">Electronic</label> 
 
                                         <input type="radio" id="Country" name="genreSelection" value="Country"/>
-                                        <label htmlFor="Country">Country</label> 
+                                        <label htmlFor="Country">Country</label>
+
+                                        <input type="radio" id="Grunge" name="genreSelection" value="Grunge"/>
+                                        <label htmlFor="Grunge">Grunge</label> 
 
                                         <input type="radio" id="Blues" name="genreSelection" value="Blues"/>
                                         <label htmlFor="Blues">Blues</label> 
@@ -128,6 +188,9 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
 
                                         <input type="radio" id="Lo-Fi" name="genreSelection" value="Lo-Fi"/>
                                         <label htmlFor="Lo-Fi">Lo-Fi</label> 
+
+                                        <input type="radio" id="Punk" name="genreSelection" value="Punk"/>
+                                        <label htmlFor="Punk">Punk</label> 
 
                                         <input type="radio" id="Pop" name="genreSelection" value="Pop"/>
                                         <label htmlFor="Pop">Pop</label> 
@@ -156,7 +219,9 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
 
                     </div>
 
-                <ShowCard />
+                <ShowCard 
+                image={previewImage}
+                artist={artistPreview} />
             </div>
         </>
         

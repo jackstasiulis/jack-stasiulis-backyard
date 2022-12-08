@@ -4,6 +4,7 @@ import ShowCard from '../../Components/ShowCard/ShowCard';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from '../../Components/Carousel/Carousel';
+import seeingStrangers from '../../assets/seeingStrangers.png'
 
 // import seeingStrangers from 
 
@@ -11,14 +12,11 @@ import Carousel from '../../Components/Carousel/Carousel';
 function Discover (props) {
     
 const slides = [
-    {url: '../../assets/seeingstrangers.png'},
-    {url: '../../assets/seeingstrangers.png'},
-    {url: '../../assets/seeingstrangers.png'},
-    {url: '../../assets/seeingstrangers.png'}
+    {url: 'https://placekitten.com/501/280'},
+    {url: 'https://placekitten.com/500/280'},
+    {url: 'https://placekitten.com/499/280'},
+    {url: 'https://placekitten.com/500/281'},
 ]
-    
-    
-
 
     return(
 
