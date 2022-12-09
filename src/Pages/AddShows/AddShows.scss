@@ -61,7 +61,11 @@
     }
     &__cont{
         display: flex;
+        flex-direction: column;
         gap: 2rem;
+        @include tablet {
+            flex-direction: row;
+        }
     }
     &__subCont{
         display: flex;
@@ -104,6 +108,16 @@
         border-radius: 5px;
         font-weight: 700;
         color: $BYWhite;
+
+        &--choose{
+            background-color: $BYRed;
+            border: none;
+            height: 2rem;
+            width: 5rem;
+            border-radius: 5px;
+            font-weight: 700;
+            color: $BYWhite;
+        }
         
         &--container{
             display: flex;
@@ -161,4 +175,21 @@
 //     border: 2px solid $BYBlue;
 //     border-radius: 8px;
 //     outline: none;
+// }
+
+.file__upload{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+    
+    // &--label{
+
+    // }
+}
+
+// #shi{
+//     display: none;
 // }

@@ -1,29 +1,28 @@
 import './ShowPage.scss';
 import axios from 'axios';
-// import ShowCard from '../../Components/ShowCard/ShowCard';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import ShowCardLarge from '../../Components/ShowCardLarge/ShowCardLarge';
 
 
 function ShowPage () {
 
-
+// State variable for our show data
     const [showData, setShowData] = useState();
+
+// Use params for our selected show id from the URL
     const { showId } = useParams();
 
+// Function to retrieve only one show for the show page
     function getSingleShow () {
       axios
       .get(`http://localhost:5050/shows/${showId}`)
-    //   console.log(showId)
       .then((res) => {
+// Set our state variable to the single showdata retrieved from our database
           setShowData(res.data[0]);
-          console.log(res.data)
       })
       .catch((err) => {
-          console.log(err);
       });
     };
     
@@ -31,29 +30,10 @@ function ShowPage () {
         getSingleShow();
     }, []);
 
-
-    
-    // const [allComments, setAllComments] = useState([])
-
-    // function getComments () {
-    //     axios
-    //     .get(`http://localhost:5050/shows/${showId}/comments`)
-    //     .then(response => {
-    //         setAllComments(response.data)
-    //     })
-    //     .catch((err) => console.log(err));
-    // }
-
-    // useEffect(() => {
-    //     getComments();
-    // },[])
-
-
-
     return(
-
         <div className='showpage'>
             <div>
+                {/* Using the large show card for single show page */}
                 {showData && 
                 <ShowCardLarge
                 key={showData.show_id}
@@ -69,8 +49,6 @@ function ShowPage () {
                 />}
             </div>
         </div>
-        
-        
     )
 }
 

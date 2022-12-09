@@ -10,7 +10,8 @@ import seeingStrangers from '../../assets/seeingStrangers.png'
 
 
 function Discover (props) {
-    
+
+// Image URLs for the discover carousel
 const slides = [
     {url: 'https://placekitten.com/501/280'},
     {url: 'https://placekitten.com/500/280'},
@@ -26,9 +27,7 @@ const slides = [
                 <Carousel slides={slides} />
             </div>
 
-
                 <div className='tablet__wrapper'>
-
                     {
                         props.allShows.map((singleShow) => (
                             <Link to={`/shows/${singleShow.show_id}`}>
@@ -43,15 +42,10 @@ const slides = [
                             doors={singleShow.doors}
                             genre={singleShow.genre}
                              />
-                            </Link>
-                        ))
+                            </Link>))
                     }
-                
-
                 </div>
         </main>
-        
-        
     )
 }
 

@@ -4,13 +4,13 @@ import toast from 'react-hot-toast';
 import { v4 as uuidv4 } from "uuid";
 import { useState } from 'react';
 import ShowCard from '../../Components/ShowCard/ShowCard'
-import CloudinaryUploadWidget from "../../Components/CloudinaryUploadWidget/CloudinaryUploadWidget";
 
 
 function AddShows () {
 
-
+// Function for adding shows form
 function addShowForm (e) {
+// Form validation for empty fields
     e.preventDefault();
     if( !previewImage ||
         !e.target.artistText.value ||
@@ -23,6 +23,7 @@ function addShowForm (e) {
         ) {
             alert('Please fill in each field!')
         }else{
+// Functionality to post a show
             addShow(
                 uuidv4(),
                 previewImage,
@@ -34,7 +35,7 @@ function addShowForm (e) {
                 e.target.genreSelection.value,
                 e.target.descriptionText.value
             );
-                // e.target.image.value = '';
+// Emptys fields after submission
                 e.target.artistText.value = '';
                 e.target.dateText.value = '';
                 e.target.venueText.value = '';
@@ -42,14 +43,15 @@ function addShowForm (e) {
                 e.target.doorsText.value = '';
                 e.target.genreSelection.value = '';
                 e.target.descriptionText.value = '';
-
+// Toast success message (styling on App.jsx)
                 toast.success('Show posted')
         }
 }
 
+// Function to add shows
 function addShow (show_id, image, artistText, dateText, venueText, addressText,
                     doorsText, genreSelection, descriptionText) {
-
+// New show object
     const newShow = {
         show_id: show_id,
         image: image,
@@ -61,19 +63,19 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
         genre: genreSelection,
         description: descriptionText
     }
-    console.log(newShow)
+// Call to backend allows for show to be posted
     axios
     .post(`http://localhost:5050/shows/`, newShow)
     .then((res) => {
-        console.log(res.data)
-    })
-    .catch((err) => console.log('LLL', err))
+
+    }).catch((err) => console.log('LLL', err))
     }
 
-
+// Image state variables
     const [imageSelected, setImageSelected] = useState('');
     const [previewImage, setPreviewImage] = useState();
 
+// Function to upload image to Cloudinary
     const uploadImage = (e) => {
         e.preventDefault();
         const formData = new FormData()
@@ -81,71 +83,50 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
         formData.append('upload_preset', 'ib0asolr')
         formData.append('api_key', 252786561257121)
         formData.append('timestamp', Date.now())
+// Axios call to cloudinary allowing upload of image
         axios
         .post('https://api.cloudinary.com/v1_1/do5k651qd/image/upload/', formData, {
-            // headers: {
-            //     "Content-Type": 'multipart/form-data; boundary=<calculated when request is sent>'
-            // },
-           
         })
-        
         .then((res) => {
-            console.log(res.data.url)
+// Set uploaded image as preview
             setPreviewImage(res.data.url)
-        }).catch((err) => console.log(err))
+        })
+        .catch((err) => console.log(err))
     }
 
+// Declare remaining preview state variables
     const [artistPreview, setArtistPreview] = useState();
     const [datePreview, setDatePreview] = useState();
     const [venuePreview, setVenuePreview] = useState();
     const [doorsPreview, setDoorsPreview] = useState();
     const [genrePreview, setGenrePreview] = useState();
 
-
-
-
-    
-
-
-
     return(
-
         <>
-
             <h2 className='form__title'>Add a Show</h2>
-
-
-            
-
             
                 <div className='addShows__wrapper'>
                     <div className='form__container'>
                         
+                        {/* Form calls form function on submit */}
                         <form className='form' action="" onSubmit={addShowForm}>
                             <div className='form__cont'>
                                 <div className='form__subCont'>
 
-                                    
-                                    {/* {previewImage && <img src={previewImage} alt="" />} */}
-
-
-
-
                                     <label className='form__label' htmlFor="">Cover Photo</label>
-                                        {/* <input className='form__input' type="text" placeholder='Upload your cover photo' name='image'/> */}
                                       
+                                        {/* Input field for image sends data to Cloudinary */}
                                         <div>
-                                            <input type="file" name='image' onChange={(e) => {
-                                                console.log(e.target.files[0]);
+                                            <label className='file__upload--label' htmlFor="imageUploadID"></label>
+                                            <input id='imageUploadID' class='file__upload' type="file" name='image' onChange={(e) => {
                                                 setImageSelected(e.target.files[0])
                                                 }}/>
                                         </div>
                                         <div>
-                                            <button className='form__button' onClick={uploadImage}>upload here</button>
+                                            <button className='form__button--upload' onClick={uploadImage}>upload here</button>
                                         </div>
 
-
-
+                                    {/* Remaining text inputs - some with onChange for live preview */}
                                     <label className='form__label' htmlFor="">Artist</label>
                                         <input className='form__input' type="text" placeholder='What is your artist name?' name='artistText' onChange={(e) => setArtistPreview(e.target.value)}/>
                                     <label className='form__label' htmlFor="">Date</label>
@@ -161,7 +142,9 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
                                         <input className='form__input' type="text" placeholder='What time do the doors open?' name='doorsText' onChange={(e) => setDoorsPreview(e.target.value)}/>
                                     <label className='form__label' htmlFor="">Choose a genre</label>
                                     
+                                    {/* Radio inputs, all with onChange for live preview */}
                                     <div className="radio-toolbar">
+
                                         <input type="radio" id="HipHop" name="genreSelection" value="Hip Hop / R & B" onChange={(e) => setGenrePreview(e.target.value)}/>
                                         <label htmlFor="HipHop">Hip Hop / R & B</label>
 
@@ -206,7 +189,7 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
                                     </div>
 
                                     <label className='form__label' htmlFor="">Description</label>
-                                    <textarea className='form__input form__textArea' type="text" placeholder='Describe your show/artist..' name='descriptionText' />
+                                        <textarea className='form__input form__textArea' type="text" placeholder='Describe your show/artist..' name='descriptionText' />
                                     
                                     <div className='form__button--container'>
                                         <button className='form__button'>SUBMIT</button>
@@ -215,16 +198,8 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
                                 </div>
                             </div>
                         </form>
-
-
-
-
-
-
-
-
                     </div>
-
+                {/* Live preview uses discover page show card with props from this page for values */}
                 <ShowCard 
                 image={previewImage}
                 artist={artistPreview}
@@ -235,8 +210,6 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
                  />
             </div>
         </>
-        
-        
     )
 }
 

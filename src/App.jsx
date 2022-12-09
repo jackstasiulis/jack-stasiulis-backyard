@@ -15,6 +15,7 @@ function App() {
 
   const [allShows, setAllShows] = useState([])
 
+// Function to get all shows for the discover page
     function getShows () {
         axios
         .get(`http://localhost:5050/shows/`)
@@ -27,26 +28,6 @@ function App() {
         getShows();
     },[])
 
-    
-    // const [showData, setShowData] = useState();
-    // const { showId } = useParams();
-
-    // function getSingleShow () {
-    //   axios
-    //   .get(`http://localhost:5050/shows/${showId}`)
-    //   // console.log(showId)
-    //   .then((res) => {
-    //       setShowData(res.data[0]);
-    //       console.log(res.data)
-    //   })
-    //   .catch((err) => {
-    //       console.log(err);
-    //   });
-    // };
-    
-    // useEffect(() => {
-    //     getSingleShow();
-    // }, []);
 
   return (
     <BrowserRouter>
@@ -60,22 +41,17 @@ function App() {
             background: '#262626',
             color: '#AA0000',
             fontWeight: '700'
-
-          }
-        }}
+          }}}
          />
-        <Routes>
+          <Routes>
 
-            <Route path='/' element={<Discover allShows={allShows} />} />
-            <Route path='/shows/:showId' element={<ShowPage />} />
-            <Route path='/addshows' element={<AddShows />} />
-        </Routes>
+              <Route path='/' element={<Discover allShows={allShows} />} />
+              <Route path='/shows/:showId' element={<ShowPage />} />
+              <Route path='/addshows' element={<AddShows />} />
+          </Routes>
         <Footer />
       </main>
     </BrowserRouter>
-
-
-
   );
 }
 
