@@ -9,7 +9,6 @@ function ShowCard (props) {
             <div className='card'>
 
                 <div className='overlay'></div>
-                    
                 
                 <div className='card__img--container'>
                     <img className='card__img' src={props.image} alt="" />
@@ -18,7 +17,6 @@ function ShowCard (props) {
                         <p className='card__text--label__artist'>ARTIST</p>
                         <h4 className='card__text--artist'>{props.artist}</h4>
                     </div>
-            
                 </div>
 
                 <div className='card__text'>
@@ -30,11 +28,9 @@ function ShowCard (props) {
                     <p className='card__text--detail'>{props.doors}</p>
                     
                     <button className='card__category'>{props.genre}</button>
-
                 </div>
             </div>
         </div>
-
     )
 }
 
