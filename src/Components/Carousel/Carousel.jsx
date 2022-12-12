@@ -1,6 +1,7 @@
 import './Carousel.scss'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import logoCarousel from '../../assets/Backyard-logo-white.png'
 
 function Carousel ({slides}) {
 
@@ -43,6 +44,9 @@ function Carousel ({slides}) {
        <div className='carousel__exterior'>
         <div className='carousel__leftArrow' onClick={goToPrevious}>↽</div>
         <div className='carousel__rightArrow' onClick={goToNext}>⇁</div>
+
+        <img className='carousel__logo' src={logoCarousel} alt="" />
+
 
         <div className='carousel__interior' style={slideStyle}>
         </div>

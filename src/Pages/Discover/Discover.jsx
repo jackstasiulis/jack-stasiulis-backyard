@@ -4,7 +4,6 @@ import ShowCard from '../../Components/ShowCard/ShowCard';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from '../../Components/Carousel/Carousel';
-import seeingStrangers from '../../assets/seeingStrangers.png'
 
 // import seeingStrangers from 
 
@@ -13,10 +12,10 @@ function Discover (props) {
 
 // Image URLs for the discover carousel
 const slides = [
-    {url: 'https://placekitten.com/501/280'},
-    {url: 'https://placekitten.com/500/280'},
-    {url: 'https://placekitten.com/499/280'},
-    {url: 'https://placekitten.com/500/281'},
+    {url: 'https://res.cloudinary.com/do5k651qd/image/upload/v1670570548/Screen_Shot_2022-11-16_at_10.41.43_PM_tvoox9.png'},
+    {url: 'https://res.cloudinary.com/do5k651qd/image/upload/v1670570335/IMG_3535_fofovb.jpg'},
+    {url: 'https://res.cloudinary.com/do5k651qd/image/upload/v1670570335/Screenshot_2022-12-08_at_11.05.56_PM_ylptko.jpg'},
+    {url: 'https://res.cloudinary.com/do5k651qd/image/upload/v1670570334/Screenshot_2022-12-08_at_11.02.16_PM_azlqpp.jpg'},
 ]
 
     return(
