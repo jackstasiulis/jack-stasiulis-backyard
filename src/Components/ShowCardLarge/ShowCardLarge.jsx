@@ -8,11 +8,11 @@ import { v4 as uuidv4 } from "uuid";
 import toast from 'react-hot-toast'
 
 function ShowCardLarge (props) {
-
+// declaring our params for showId and state variable for the all comments state variable
     const { showId } = useParams();
     const [allComments, setAllComments] = useState([])
 
-
+// axios call to retrieve comments data from backend
     function getComments () {
         axios
         .get(`http://localhost:5050/shows/${showId}/comments`)
@@ -21,30 +21,31 @@ function ShowCardLarge (props) {
         })
         .catch((err) => console.log(err));
     }
-    
+// calls our get comments function on page load
     useEffect(() => {
         getComments();
     },[])
 
-
+// function to validate our add comments input so a blank comment cannot be posted
     function formValidation (e) {
         e.preventDefault();
-        // console.log(e.target.commentText.value)
         if(!e.target.commentText.value) {
             alert('Please fill in your comment!')
         } else {
+// if the comment body has content, calls our addComments function with DEFAULT USERNAME 'hello
             addComments(
                 uuidv4(),
                 e.target.commentText.value,
-                'hello',
+                'hello', // replace this with username!!!!
                 showId
             );
+// clears input field and sends alert after posting comment
             e.target.commentText.value = '';
-            // alert("awesome, comment posted")
             toast.success('Comment posted');
         };
     }
 
+// function to add comment to the show post
     function addComments (comments_id, commentText, username, showId) {
         const newComment = {
             comments_id: comments_id,
@@ -54,10 +55,11 @@ function ShowCardLarge (props) {
             show_id: showId
         }
         console.log(newComment)
+// axios call to post a comment to our backend
         axios
         .post(`http://localhost:5050/shows/${showId}/comments/`, newComment)
-        // console.log(newComment)
         .then((res) => {
+// calls our getComments function to retrieve the just posted comment
             getComments();
         })
         .catch((err) => console.log('www', err))
@@ -68,8 +70,6 @@ function ShowCardLarge (props) {
             
             <div className='cardLarge'>
 
-                {/* <div className='overlay'></div> */}
-                    
                 <div className='cardLarge__wrapper'>
                     <div className='cardLarge__img--container'>
                         <img className='cardLarge__img' src={props.image} alt="" />
@@ -106,7 +106,9 @@ function ShowCardLarge (props) {
 
 
                 {
+                    // if our comments array has more than 0 comments, run this
                     allComments.length > 0 ? (
+                        // map through our comments array creating each comment
                         allComments.map((singleComment, i) => (
                             <div className='cardLarge__comment'
                             key={i}
@@ -117,20 +119,9 @@ function ShowCardLarge (props) {
                                 <p className='cardLarge__comment--body'>{singleComment.comments_body}</p>
                             </div>
                         ))
+                        // if no comments, render this
                     ) : (<p className='cardLarge__comment--name__noComment'>no comments just yet...</p>)
                 }
-                    
-
-                    {/* <div className='cardLarge__comment'>
-                        <p className='cardLarge__comment--name'>username</p>
-                        <p className='cardLarge__comment--body'>sample comment. blah blah blah. blah blah blah. blah blah blah. blah blah blah. blah blah blah. blah blah blah. </p>
-                    </div>
-
-                    <div className='cardLarge__comment'>
-                        <p className='cardLarge__comment--name'>username</p>
-                        <p className='cardLarge__comment--body'>sample comment. blah blah blah. blah blah blah. blah blah blah. blah blah blah. blah blah blah. blah blah blah. </p>
-                    </div> */}
-
 
                     <form className='cardLarge__comment' onSubmit={formValidation}>
                         <input className='cardLarge__comment--input' type="text" placeholder='enter comment' name='commentText' />

@@ -28,6 +28,7 @@ const slides = [
 
                 <div className='tablet__wrapper'>
                     {
+                // maps through show data to provide info to our discover page cards
                         props.allShows.map((singleShow) => (
                             <Link to={`/shows/${singleShow.show_id}`}>
                             <ShowCard
