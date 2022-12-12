@@ -7,48 +7,33 @@ import { NavLink } from 'react-router-dom';
 
 function Navbar() {
 
-    // const activePage = window.location.pathname;
-    // // console.log(activePage)
-    // const navLinks = document.querySelectorAll('button')
+    // const myNav = useNavigate();
 
-    // navLinks.forEach(link => {
-    //     if(link.href.includes(`${activePage}`)){
-    //         console.log(`${activePage}`)
-    //     }
-    //     console.log()
-    // });
+    // const addshows = (e) => {
+    //     myNav('/addshows')
+    // }
 
-    // forEach(link => {
-    //     console.log(link.href)
-    // })
-
-    const myNav = useNavigate();
-
-    const addshows = (e) => {
-        // const addshowsActive = document.querySelector('.+shows');
-        // addshowsActive.classList.toggle('active');
+    // const discover = (e) => {
+    //     myNav('/')
+    // }
 
 
-        myNav('/addshows')
-    }
-
-    const discover = (e) => {
-        myNav('/')
-    }
-
+// function to toggle our hamburger menu on and off
     const toggleHam = () => {
         const hamChange = document.querySelector('.hamburgermenu');
         hamChange.classList.toggle('active');
-
+// once toggled, our mobile menu is activated
         const mobileMenu = document.querySelector('.mobileMenu');
         mobileMenu.classList.toggle('active');
     };
 
+
     return(
         <>
-            
+            {/* Our mobile menu component, visible when the toggleHam function is triggered */}
             <MobileMenu toggleHam={toggleHam} />
-
+            
+            {/* The mobile navbar */}
             <nav className='navbar'>
                 <div className="hamburgermenu__container">
                     <div onClick={toggleHam} className='hamburgermenu'>
@@ -58,8 +43,7 @@ function Navbar() {
                     </div>
                 </div>
 
-
-
+                {/* Our main navbar for the desktop screen size */}
                 <div className='navbar__menu--wrapper'>
                     <div className='navbar__menu'>  
                         <NavLink to='/' className={({isActive}) => 
@@ -72,11 +56,8 @@ function Navbar() {
                             'navbar__menu__option' + (isActive || window.location.pathname === '/addshows' ? '--active' : null)
                         }><button className='navbar__menu__option'>+shows</button>
                         </NavLink>
-
-
-
                     </div>
-                                    
+
                     <div className='navbar__menu'>
                         <button className='navbar__menu__option'>about</button>
                         <button className='navbar__menu__option'>profile</button>
@@ -88,11 +69,6 @@ function Navbar() {
                 <img className='navbar__logo' src={LogoR} alt="" />
 
             </nav>
-
-
-
-
-
         </>
     )
 }
