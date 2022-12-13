@@ -13,6 +13,69 @@ import toast, { Toaster } from 'react-hot-toast'
 
 function App() {
 
+// state variables for our sign in
+const [signedIn, setSignedIn] = useState(false);
+const [user, setUser] = useState(null);
+// Mounts component / checks if local storage has the JWT token
+// If token exists verify the JWT and sign in the user!
+useEffect(() => {
+  const jwtToken = localStorage.getItem('jwt_token')
+// If JWT token exists, load the user profile (object)
+  if (jwtToken) { 
+    loadProfile(jwtToken);
+  }
+}, []);
+
+// Function to get our user data.
+// sends the JWT token in the request headers
+// server decodes token in the at the verify endpoint
+const loadProfile = (jwtToken) => {
+  axios
+    .get('http://localhost:5050/verify', {
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    })
+    .then((res) => {
+      setSignedIn(true);
+      setUser(res.data.user)
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+// Function for the actual sign in
+// posts username and password to the server
+// returns JWT if successful
+const handleSignIn = (e) => {
+  e.preventDefault();
+  axios
+    .post('http://localhost:5050/signin', {
+      username: e.target.username.value,
+      password: e.target.password.value,
+    })
+    .then((res) => {
+      if(res.data.token) {
+        loadProfile(res.data.token);
+        localStorage.setItem('jwt_token', res.data.token);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+// Function to sign a user out
+const handleSignOut = () => {
+  setSignedIn(false);
+  setUser(null);
+  localStorage.removeItem('jwt_token');
+};
+
+
+
+
   const [allShows, setAllShows] = useState([])
 
 // Function to get all shows for the discover page
