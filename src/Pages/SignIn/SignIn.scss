@@ -1,0 +1,20 @@
+@use '../../Styles/variables.scss' as *;
+@use '../../Styles/mixins.scss' as *;
+
+.signin{
+    &__form{
+        display: flex;
+        flex-direction: column;
+        &--label{
+            color: $BYRed;
+            font-weight: 700;
+        }
+        &--input{
+            width: 10rem;
+        }
+        &--button{
+            width: 10rem;
+        }
+    }
+}
+

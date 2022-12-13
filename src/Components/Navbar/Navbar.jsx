@@ -5,7 +5,7 @@ import MobileMenu from '../MobileMenu/MobileMenu';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
-function Navbar() {
+function Navbar(props) {
 
     // const myNav = useNavigate();
 
@@ -27,6 +27,7 @@ function Navbar() {
         mobileMenu.classList.toggle('active');
     };
 
+    const navigate = useNavigate();
 
     return(
         <>
@@ -45,6 +46,7 @@ function Navbar() {
 
                 {/* Our main navbar for the desktop screen size */}
                 <div className='navbar__menu--wrapper'>
+                    {/* Navbar LEFT SIDE */}
                     <div className='navbar__menu'>  
                         <NavLink to='/' className={({isActive}) => 
                             'navbar__menu__option' + (isActive || window.location.pathname === '/' ? '--active' : null)
@@ -58,11 +60,34 @@ function Navbar() {
                         </NavLink>
                     </div>
 
+                    {/* Navbar RIGHT SIDE */}
                     <div className='navbar__menu'>
+
                         <button className='navbar__menu__option'>about</button>
                         <button className='navbar__menu__option'>profile</button>
-                        <button className='navbar__menu__option modBold'>sign|in</button>
+
                         <button className='navbar__menu__option modHide'>hidden</button>
+
+                        
+                        {props.signedIn ? (
+                            <NavLink to='/signin' className={({isActive}) => 
+                            'navbar__menu__option' + (isActive || window.location.pathname === '/signin' ? '--active' : null)
+                            }><button className='navbar__menu__option' 
+                            onClick={() => {
+                                props.handleSignOut();
+                                navigate('/');
+                              }} >sign|out</button>
+                            </NavLink>
+                        ):(
+                            <NavLink to='/signin' className={({isActive}) => 
+                                'navbar__menu__option' + (isActive || window.location.pathname === '/signin' ? '--active' : null)
+                            }><button className='navbar__menu__option'>sign|in</button>
+                            </NavLink>
+                        )}
+                        
+
+
+                        
                     </div>
                 </div>
                 

@@ -2,16 +2,19 @@
 import './App.scss'
 import Navbar from './Components/Navbar/Navbar'
 import Discover from './Pages/Discover/Discover';
-import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams, Navigate, useNavigate } from 'react-router-dom';
 import Footer from './Components/Footer/Footer';
 import AddShows from './Pages/AddShows/AddShows';
 import ShowPage from './Pages/ShowPage/ShowPage';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast'
+import SignIn from './Pages/SignIn/SignIn';
 
 
 function App() {
+const navigate = useNavigate();
+
 
 // state variables for our sign in
 const [signedIn, setSignedIn] = useState(false);
@@ -59,6 +62,8 @@ const handleSignIn = (e) => {
       if(res.data.token) {
         loadProfile(res.data.token);
         localStorage.setItem('jwt_token', res.data.token);
+        console.log('WOW YES')
+        navigate('/')
       }
     })
     .catch((err) => {
@@ -93,9 +98,10 @@ const handleSignOut = () => {
 
 
   return (
-    <BrowserRouter>
+  // moved BrowserRouter to index.js
+
       <main className="App">
-        <Navbar />
+        <Navbar signedIn={signedIn} handleSignOut={handleSignOut} />
         <Toaster 
         position='top-left'
         toastOptions={{
@@ -108,13 +114,18 @@ const handleSignOut = () => {
          />
           <Routes>
 
-              <Route path='/' element={<Discover allShows={allShows} />} />
+              <Route path='/' element={<Discover allShows={allShows}/>} />
               <Route path='/shows/:showId' element={<ShowPage />} />
               <Route path='/addshows' element={<AddShows />} />
+              <Route path='/signin' element={<SignIn
+                                                signedIn={signedIn}
+                                                user={user}
+                                                handleSignIn={handleSignIn}
+                                                // username={username.value}
+                                                />} />
           </Routes>
         <Footer />
       </main>
-    </BrowserRouter>
   );
 }
 
