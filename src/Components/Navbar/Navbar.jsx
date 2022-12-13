@@ -4,18 +4,9 @@ import { useState } from 'react';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
 
 function Navbar(props) {
-
-    // const myNav = useNavigate();
-
-    // const addshows = (e) => {
-    //     myNav('/addshows')
-    // }
-
-    // const discover = (e) => {
-    //     myNav('/')
-    // }
 
 
 // function to toggle our hamburger menu on and off
@@ -26,8 +17,6 @@ function Navbar(props) {
         const mobileMenu = document.querySelector('.mobileMenu');
         mobileMenu.classList.toggle('active');
     };
-
-    const navigate = useNavigate();
 
     return(
         <>
@@ -54,10 +43,25 @@ function Navbar(props) {
                         </NavLink>
                         <button className='navbar__menu__option'>artists</button>
                         <button className='navbar__menu__option'>venues</button>
-                        <NavLink to='/addshows' className={({isActive}) => 
-                            'navbar__menu__option' + (isActive || window.location.pathname === '/addshows' ? '--active' : null)
-                        }><button className='navbar__menu__option'>+shows</button>
-                        </NavLink>
+                        
+                        {/* for addshows link */}
+                        {props.signedIn ? (
+                            <NavLink to='/addshows' className={({isActive}) => 
+                                'navbar__menu__option' + (isActive || window.location.pathname === '/addshows' ? '--active' : null)
+                                }><button className='navbar__menu__option'>+shows</button>
+                            </NavLink>
+                        ) : (
+                            <NavLink to='/signin' className={({isActive}) => 
+                                'navbar__menu__option' + (isActive === '/signin' ? '--active' : null)
+                                }><button className='navbar__menu__option'>+shows</button>
+                            </NavLink>
+                        )}
+                        
+
+
+                        
+
+
                     </div>
 
                     {/* Navbar RIGHT SIDE */}
@@ -68,22 +72,24 @@ function Navbar(props) {
 
                         <button className='navbar__menu__option modHide'>hidden</button>
 
-                        
+                        {/* for sign in link */}
                         {props.signedIn ? (
-                            <NavLink to='/signin' className={({isActive}) => 
-                            'navbar__menu__option' + (isActive || window.location.pathname === '/signin' ? '--active' : null)
-                            }><button className='navbar__menu__option' 
+                            <NavLink to='/' className={({isActive}) => 
+                                'navbar__menu__option' + (isActive === '/signin' ? '--active' : null)
+                                }><button className='navbar__menu__option' 
                             onClick={() => {
                                 props.handleSignOut();
-                                navigate('/');
                               }} >sign|out</button>
                             </NavLink>
                         ):(
                             <NavLink to='/signin' className={({isActive}) => 
                                 'navbar__menu__option' + (isActive || window.location.pathname === '/signin' ? '--active' : null)
-                            }><button className='navbar__menu__option'>sign|in</button>
+                                }><button className='navbar__menu__option'>sign|in</button>
                             </NavLink>
                         )}
+                        {props.signedIn ? (
+                            <p className='navbar__menu--username'>wow</p>
+                        ) : null}
                         
 
 

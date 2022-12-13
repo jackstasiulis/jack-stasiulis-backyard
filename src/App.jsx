@@ -101,7 +101,7 @@ const handleSignOut = () => {
   // moved BrowserRouter to index.js
 
       <main className="App">
-        <Navbar signedIn={signedIn} handleSignOut={handleSignOut} />
+        <Navbar signedIn={signedIn} handleSignOut={handleSignOut} user={user} />
         <Toaster 
         position='top-left'
         toastOptions={{
