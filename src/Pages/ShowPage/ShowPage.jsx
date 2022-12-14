@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import ShowCardLarge from '../../Components/ShowCardLarge/ShowCardLarge';
 
 
-function ShowPage () {
+function ShowPage (props) {
 
 // State variable for our show data
     const [showData, setShowData] = useState();
@@ -46,6 +46,10 @@ function ShowPage () {
                 doors={showData.doors}
                 genre={showData.genre}
                 description={showData.description}
+                users_id={showData.users_id}
+
+                comment_users_id={props.user.users_id}
+                comment_users_username={props.user.username}
                 />}
             </div>
         </div>

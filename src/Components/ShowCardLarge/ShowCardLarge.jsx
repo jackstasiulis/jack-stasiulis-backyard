@@ -36,7 +36,8 @@ function ShowCardLarge (props) {
             addComments(
                 uuidv4(),
                 e.target.commentText.value,
-                'hello', // replace this with username!!!!
+                // 'hello', // replace this with username!!!!
+                props.comment_users_username,
                 showId
             );
 // clears input field and sends alert after posting comment
@@ -51,8 +52,10 @@ function ShowCardLarge (props) {
             comments_id: comments_id,
             comments_body: commentText,
             username: username,
+            timestamp: '2022-09-04',
             likes: 0,
-            show_id: showId
+            show_id: showId,
+            users_id: props.comment_users_id
         }
         console.log(newComment)
 // axios call to post a comment to our backend

@@ -3,7 +3,7 @@ import seeingStrangers from '../../assets/seeingStrangers.png';
 import { useNavigate } from 'react-router-dom';
 
 function ShowCard (props) {
-
+console.log('showcard', props.users_id)
     return(
         <div className='card__wrapper'>
             <div className='card'>

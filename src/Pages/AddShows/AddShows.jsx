@@ -6,7 +6,7 @@ import { useState } from 'react';
 import ShowCard from '../../Components/ShowCard/ShowCard'
 
 
-function AddShows () {
+function AddShows ({user}) {
 
 // Function for adding shows form
 function addShowForm (e) {
@@ -61,7 +61,8 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
         address: addressText,
         doors: doorsText,
         genre: genreSelection,
-        description: descriptionText
+        description: descriptionText,
+        users_id: user.users_id
     }
 // Call to backend allows for show to be posted
     axios

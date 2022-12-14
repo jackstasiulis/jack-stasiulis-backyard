@@ -13,12 +13,13 @@ import SignIn from './Pages/SignIn/SignIn';
 
 
 function App() {
+
 const navigate = useNavigate();
 
 
 // state variables for our sign in
 const [signedIn, setSignedIn] = useState(false);
-const [user, setUser] = useState(null);
+const [user, setUser] = useState();
 // Mounts component / checks if local storage has the JWT token
 // If token exists verify the JWT and sign in the user!
 useEffect(() => {
@@ -41,7 +42,8 @@ const loadProfile = (jwtToken) => {
     })
     .then((res) => {
       setSignedIn(true);
-      setUser(res.data.user)
+      setUser(res.data)
+      console.log(res.data)
     })
     .catch((err) => {
       console.log(err);
@@ -62,7 +64,6 @@ const handleSignIn = (e) => {
       if(res.data.token) {
         loadProfile(res.data.token);
         localStorage.setItem('jwt_token', res.data.token);
-        console.log('WOW YES')
         navigate('/')
       }
     })
@@ -101,7 +102,7 @@ const handleSignOut = () => {
   // moved BrowserRouter to index.js
 
       <main className="App">
-        <Navbar signedIn={signedIn} handleSignOut={handleSignOut} user={user} />
+        <Navbar signedIn={signedIn} handleSignOut={handleSignOut} username={user?.username}/>
         <Toaster 
         position='top-left'
         toastOptions={{
@@ -115,8 +116,8 @@ const handleSignOut = () => {
           <Routes>
 
               <Route path='/' element={<Discover allShows={allShows}/>} />
-              <Route path='/shows/:showId' element={<ShowPage />} />
-              <Route path='/addshows' element={<AddShows />} />
+              <Route path='/shows/:showId' element={<ShowPage user={user} />} />
+              <Route path='/addshows' element={<AddShows user={user} />} />
               <Route path='/signin' element={<SignIn
                                                 signedIn={signedIn}
                                                 user={user}

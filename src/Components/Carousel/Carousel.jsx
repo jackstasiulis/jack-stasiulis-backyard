@@ -24,7 +24,7 @@ function Carousel ({slides}) {
       const isLastSlide = currentIndex === slides.length -1;
       const newIndex = isLastSlide ? 0 : currentIndex +1;
       setCurrentIndex(newIndex);
-      console.log(currentIndex)
+      // console.log(currentIndex)
     }
 // function for our bottom dots to select a slide to skip to
     const goToSlide = (slideIndex) => {

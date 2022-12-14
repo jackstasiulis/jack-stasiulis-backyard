@@ -8,7 +8,7 @@ import userEvent from '@testing-library/user-event';
 
 function Navbar(props) {
 
-
+    
 // function to toggle our hamburger menu on and off
     const toggleHam = () => {
         const hamChange = document.querySelector('.hamburgermenu');
@@ -88,7 +88,7 @@ function Navbar(props) {
                             </NavLink>
                         )}
                         {props.signedIn ? (
-                            <p className='navbar__menu--username'>wow</p>
+                            <p className='navbar__menu--username'>{props.username}</p>
                         ) : null}
                         
 
