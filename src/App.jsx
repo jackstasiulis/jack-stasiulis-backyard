@@ -132,8 +132,8 @@ const handleSignOut = () => {
         toastOptions={{
           icon:'∆',
           style: {
-            background: '#262626',
-            color: '#AA0000',
+            background: '#AA0000',
+            color: '#F5F5F5',
             fontWeight: '700'
           }}}
          />

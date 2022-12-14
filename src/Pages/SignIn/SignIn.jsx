@@ -7,18 +7,31 @@ const navigate = useNavigate();
 
     return(
         <div className='signin'>
-            {!props.signedIn ? (
-                <form className='signin__form' onSubmit={props.handleSignIn}>
+            <h2 className='form__title'>Sign In</h2>
+                <div className='form__container'>
+                    {!props.signedIn ? (
+                    <form className='form' onSubmit={props.handleSignIn} >
+                        <div className='form__cont'>
+                            <div className='form__subCont'>
 
-                    <label className='signin__form--label' >username</label>
-                    <input className='signin__form--input' type="username" name='username' placeholder='username' />
+                                <label className='form__label' >Username</label>
+                                <input className='form__input' type="username" name='username' placeholder='Please input your username' />
 
-                    <label className='signin__form--label' >password</label>
-                    <input className='signin__form--input' type="password" name='password' placeholder='password' />
-
-                    <button className='signin__form--button' type='submit'>Sign in</button>
-                </form>
-            ) : ''}
+                                <label className='form__label' >Password</label>
+                                <input className='form__input' type="password" name='password' placeholder='Please input your password' />
+                            
+                                <div className='form__button--container'>
+                                    <button className='form__button'>Sign In</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    ) : ''}
+                </div>
+                    <div>
+                        <button className='form__button--signup'>Sign Up</button>
+                        <label className='form__label--signup'>here if you dont have an account</label>
+                    </div>
         </div>
     );
 }
