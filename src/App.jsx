@@ -10,11 +10,35 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast'
 import SignIn from './Pages/SignIn/SignIn';
+import SignUp from './Pages/SignUp/SignUp';
 
 
 function App() {
 
 const navigate = useNavigate();
+
+
+// Function to register a user!
+const handleSignUp = (e) => {
+  e.preventDefault();
+  axios
+  .post('http://localhost:5050/signup', {
+    // uses email, username, and pass to sign up
+    email: e.target.email.value,
+    username: e.target.username.value,
+    password: e.target.password.value
+  })
+  .then((res) => {
+    if(res.data.token) {
+      loadProfile(res.data.token);
+      localStorage.setItem('jwt_token', res.data.token);
+      navigate('/')
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+};
 
 
 // state variables for our sign in
@@ -99,12 +123,12 @@ const handleSignOut = () => {
 
 
   return (
-  // moved BrowserRouter to index.js
+  //BrowserRouter moved to index.js
 
       <main className="App">
         <Navbar signedIn={signedIn} handleSignOut={handleSignOut} username={user?.username}/>
         <Toaster 
-        position='top-left'
+        position='bottom-left'
         toastOptions={{
           icon:'∆',
           style: {
@@ -118,6 +142,8 @@ const handleSignOut = () => {
               <Route path='/' element={<Discover allShows={allShows}/>} />
               <Route path='/shows/:showId' element={<ShowPage user={user} />} />
               <Route path='/addshows' element={<AddShows user={user} />} />
+
+              <Route path='/signup' element={<SignUp handleSignUp={handleSignUp} />} />
               <Route path='/signin' element={<SignIn
                                                 signedIn={signedIn}
                                                 user={user}

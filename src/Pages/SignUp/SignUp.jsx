@@ -6,16 +6,19 @@ function SignUp (props) {
 const navigate = useNavigate();
 
     return(
-        <div className='SignUp'>
-                <form className='SignUp__form' onSubmit={props.handleSignUp}>
+        <div className='signup'>
+                <form className='signup__form' onSubmit={props.handleSignUp}>
 
-                    <label className='SignUp__form--label' >username</label>
-                    <input className='SignUp__form--input' type="username" name='username' placeholder='username' />
+                    <label className='signup__form--label' >email</label>
+                    <input className='signup__form--input' type="email" name='email' placeholder='email' />
 
-                    <label className='SignUp__form--label' >password</label>
-                    <input className='SignUp__form--input' type="password" name='password' placeholder='password' />
+                    <label className='signup__form--label' >username</label>
+                    <input className='signup__form--input' type="username" name='username' placeholder='username' />
 
-                    <button className='SignUp__form--button' type='submit'>Sign in</button>
+                    <label className='signup__form--label' >password</label>
+                    <input className='signup__form--input' type="password" name='password' placeholder='password' />
+
+                    <button className='signup__form--button' type='submit'>Sign in</button>
                 </form>
         </div>
     );
