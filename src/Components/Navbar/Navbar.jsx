@@ -21,7 +21,7 @@ function Navbar(props) {
     return(
         <>
             {/* Our mobile menu component, visible when the toggleHam function is triggered */}
-            <MobileMenu toggleHam={toggleHam} />
+            <MobileMenu toggleHam={toggleHam} signedIn={props.signedIn} handleSignOut={props.handleSignOut} username={props.username} />
             
             {/* The mobile navbar */}
             <nav className='navbar'>

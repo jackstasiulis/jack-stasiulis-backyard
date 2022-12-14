@@ -41,4 +41,10 @@
     @include desktop{
         display: none;
     }
+    &__username{
+        font-size: 1rem;
+        color: $BYWhite;
+        position: absolute;
+        // margin-left: 3rem;
+    }
 }
