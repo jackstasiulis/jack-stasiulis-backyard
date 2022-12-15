@@ -42,6 +42,8 @@ const slides = [
                             doors={singleShow.doors}
                             genre={singleShow.genre}
                             users_id={singleShow.users_id}
+
+                            handleDeleteShows={props.handleDeleteShow}
                              />
                             // </Link>
                             ))

@@ -1,9 +1,11 @@
 import './ShowCard.scss';
 import seeingStrangers from '../../assets/seeingStrangers.png';
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 
 function ShowCard (props) {
 console.log('showcard', props.users_id)
+
     return(
     <div>
         <div className='card__wrapper'>
@@ -36,7 +38,7 @@ console.log('showcard', props.users_id)
             </div>
             </Link>
 
-            <button className='card__delete'>delete</button>
+            <button onClick={props.handleDeleteShow} className='card__delete'>delete</button>
         </div>
     </div>
     )

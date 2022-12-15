@@ -109,7 +109,7 @@ const handleSignOut = () => {
   const [allShows, setAllShows] = useState([])
 
 // Function to get all shows for the discover page
-    function getShows () {
+    const getShows = () => {
         axios
         .get(`http://localhost:5050/shows/`)
         .then(response => {
@@ -120,6 +120,18 @@ const handleSignOut = () => {
     useEffect(() => {
         getShows();
     },[])
+
+
+    const handleDeleteShow = (e) => {
+      e.preventDefault();
+      axios
+      .delete(`http://localhost:5050/shows/${show_id}`)
+      .then((res) => {
+        getShows();
+      })
+      .catch((err) => console.log(`unable to delete show: ${err}`))
+  }
+
 
 
   return (
@@ -139,7 +151,7 @@ const handleSignOut = () => {
          />
           <Routes>
 
-              <Route path='/' element={<Discover allShows={allShows}/>} />
+              <Route path='/' element={<Discover allShows={allShows} handleDeleteShow={handleDeleteShow} />} />
               <Route path='/shows/:showId' element={<ShowPage user={user} />} />
               <Route path='/addshows' element={<AddShows user={user} />} />
 
