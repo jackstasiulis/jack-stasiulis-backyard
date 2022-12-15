@@ -13,7 +13,7 @@ function ShowCardLarge (props) {
     const [allComments, setAllComments] = useState([])
 
 // axios call to retrieve comments data from backend
-    function getComments () {
+    const getComments = () => {
         axios
         .get(`http://localhost:5050/shows/${showId}/comments`)
         .then(response => {
@@ -27,7 +27,7 @@ function ShowCardLarge (props) {
     },[])
 
 // function to validate our add comments input so a blank comment cannot be posted
-    function formValidation (e) {
+    const formValidation = (e) => {
         e.preventDefault();
         if(!e.target.commentText.value) {
             alert('Please fill in your comment!')
@@ -47,7 +47,7 @@ function ShowCardLarge (props) {
     }
 
 // function to add comment to the show post
-    function addComments (comments_id, commentText, username, showId) {
+    const addComments = (comments_id, commentText, username, showId) => {
         const newComment = {
             comments_id: comments_id,
             comments_body: commentText,
@@ -67,6 +67,12 @@ function ShowCardLarge (props) {
         })
         .catch((err) => console.log('www', err))
     }
+
+
+
+
+
+
 
 
     return(
@@ -120,6 +126,7 @@ function ShowCardLarge (props) {
                             >
                                 <p className='cardLarge__comment--name'>{singleComment.username}</p>
                                 <p className='cardLarge__comment--body'>{singleComment.comments_body}</p>
+                                <button className='cardLarge__comment--delete'>deleteC</button>
                             </div>
                         ))
                         // if no comments, render this
