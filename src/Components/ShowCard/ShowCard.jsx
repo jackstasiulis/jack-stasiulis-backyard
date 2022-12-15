@@ -4,7 +4,19 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 function ShowCard (props) {
-console.log('showcard', props.users_id)
+
+// Function to delete a single show
+const handleDeleteShow = (e) => {
+    e.preventDefault();
+    axios
+    .delete(`http://localhost:5050/shows/${props.show_id}`)
+    .then((res) => {
+        
+// After deletion, the array is refreshed by calling getShows
+      props.getShows();
+    })
+    .catch((err) => console.log(`unable to delete show: ${err}`))
+}
 
     return(
     <div>
@@ -38,7 +50,7 @@ console.log('showcard', props.users_id)
             </div>
             </Link>
 
-            <button onClick={props.handleDeleteShow} className='card__delete'>delete</button>
+            <button onClick={handleDeleteShow} className='card__delete'>delete</button>
         </div>
     </div>
     )

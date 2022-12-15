@@ -122,15 +122,19 @@ const handleSignOut = () => {
     },[])
 
 
-    const handleDeleteShow = (e) => {
-      e.preventDefault();
-      axios
-      .delete(`http://localhost:5050/shows/${show_id}`)
-      .then((res) => {
-        getShows();
-      })
-      .catch((err) => console.log(`unable to delete show: ${err}`))
-  }
+
+    // const { showId } = useParams();
+
+  //   const handleDeleteShow = (e) => {
+  //     console.log('hellor')
+  //     e.preventDefault();
+  //     axios
+  //     .delete(`http://localhost:5050/shows/${showId}`)
+  //     .then((res) => {
+  //       getShows();
+  //     })
+  //     .catch((err) => console.log(`unable to delete show: ${err}`))
+  // }
 
 
 
@@ -151,7 +155,7 @@ const handleSignOut = () => {
          />
           <Routes>
 
-              <Route path='/' element={<Discover allShows={allShows} handleDeleteShow={handleDeleteShow} />} />
+              <Route path='/' element={<Discover allShows={allShows} getShows={getShows} />} />
               <Route path='/shows/:showId' element={<ShowPage user={user} />} />
               <Route path='/addshows' element={<AddShows user={user} />} />
 

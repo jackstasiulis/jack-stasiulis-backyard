@@ -43,7 +43,9 @@ const slides = [
                             genre={singleShow.genre}
                             users_id={singleShow.users_id}
 
-                            handleDeleteShows={props.handleDeleteShow}
+                            handleDeleteShow={props.handleDeleteShow}
+                            getShows={props.getShows}
+                            // user={props.user}
                              />
                             // </Link>
                             ))
