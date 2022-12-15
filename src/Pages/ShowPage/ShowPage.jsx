@@ -50,6 +50,7 @@ function ShowPage (props) {
 
                 comment_users_id={props.user.users_id}
                 comment_users_username={props.user.username}
+                user={props.user}
                 />}
             </div>
         </div>

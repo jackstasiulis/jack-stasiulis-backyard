@@ -123,7 +123,7 @@ const handleSignOut = () => {
 
 
 
-    // const { showId } = useParams();
+  //   const { showId } = useParams();
 
   //   const handleDeleteShow = (e) => {
   //     console.log('hellor')

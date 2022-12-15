@@ -50,7 +50,9 @@ const handleDeleteShow = (e) => {
             </div>
             </Link>
 
-            <button onClick={handleDeleteShow} className='card__delete'>delete</button>
+            <button onClick={handleDeleteShow} className='card__delete'>delete Show</button>
+            {/* <button  className='card__delete'>delete</button> */}
+
         </div>
     </div>
     )

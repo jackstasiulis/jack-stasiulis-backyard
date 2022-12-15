@@ -47,13 +47,13 @@ function ShowCardLarge (props) {
     }
 
 // function to add comment to the show post
-    const addComments = (comments_id, commentText, username, showId) => {
+    function addComments (comments_id, commentText, username, showId) {
         const newComment = {
             comments_id: comments_id,
             comments_body: commentText,
             username: username,
             timestamp: '2022-09-04',
-            likes: 0,
+            likes: '0',
             show_id: showId,
             users_id: props.comment_users_id
         }
@@ -68,7 +68,20 @@ function ShowCardLarge (props) {
         .catch((err) => console.log('www', err))
     }
 
+    
 
+const handleDeleteComment = (e, comments_id) => {
+    e.preventDefault();
+    console.log('HELLO', comments_id)
+    axios
+    .delete(`http://localhost:5050/shows/${props.show_id}/comments/${comments_id}`)
+    .then((res) => {
+        
+// After deletion, the comments array is refreshed by calling getComments
+      getComments();
+    })
+    .catch((err) => console.log(`unable to delete show: ${err}`))
+}
 
 
 
@@ -118,15 +131,22 @@ function ShowCardLarge (props) {
                     // if our comments array has more than 0 comments, run this
                     allComments.length > 0 ? (
                         // map through our comments array creating each comment
-                        allComments.map((singleComment, i) => (
+                        allComments.map((singleComment) => (
                             <div className='cardLarge__comment'
-                            key={i}
+                            key={singleComment.comments_id}
                             username={singleComment.name}
                             comments_body={singleComment.comments_body}
                             >
                                 <p className='cardLarge__comment--name'>{singleComment.username}</p>
                                 <p className='cardLarge__comment--body'>{singleComment.comments_body}</p>
-                                <button className='cardLarge__comment--delete'>deleteC</button>
+
+                                {singleComment.users_id == props.comment_users_id ? (
+                                    <button onClick={(e)=> handleDeleteComment(e, singleComment.comments_id)} className='cardLarge__comment--delete'>deleteC</button>
+                                ) : null}
+                                
+
+
+
                             </div>
                         ))
                         // if no comments, render this
