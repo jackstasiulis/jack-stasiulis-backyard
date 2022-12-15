@@ -30,7 +30,7 @@ const slides = [
                     {
                 // maps through show data to provide info to our discover page cards
                         props.allShows.map((singleShow) => (
-                            <Link to={`/shows/${singleShow.show_id}`}>
+                            // <Link to={`/shows/${singleShow.show_id}`}>
                             <ShowCard
                             key={singleShow.show_id}
                             show_id={singleShow.show_id}
@@ -43,7 +43,8 @@ const slides = [
                             genre={singleShow.genre}
                             users_id={singleShow.users_id}
                              />
-                            </Link>))
+                            // </Link>
+                            ))
                     }
                 </div>
         </main>

@@ -3,7 +3,7 @@
 
 
 .card{
-    margin: 2rem auto;
+    margin: 2rem 0;
     // width: 85%;
     width: 27rem;
     height: 13rem;
@@ -15,6 +15,7 @@
     // z-index: -100;
 
     &:hover .overlay{
+        // position: absolute;
         background: rgb(0, 0, 0, 0.4);
     }
 
@@ -24,17 +25,17 @@
         width: 13rem;
         height: 27rem;
         padding: 0rem 1rem;
-        margin-top: 0;
     }
     @include desktop{
-        margin: 2rem 2rem;
+        margin: 2rem 0rem;
     }
     &__wrapper{
+        // width: 16rem;
         @include tablet{
-            margin: 0 1rem;
+            margin: 0rem 1rem;
         }
         @include desktop{
-            margin: inherit;
+            margin: 1rem 0rem;
         }
     }
 
@@ -107,22 +108,33 @@
             // margin-left: 2.7rem;
         }
     }
-}
+    &__delete{
+        position: absolute;
+        height: 1.5rem;
+        z-index: 100000000;
 
-.overlay{
-    transition: all 0.4s ease;
-    position: absolute;
-    width: 27rem;
-    height: 13rem;
-    background: rgb(0, 0, 0, 0);
-    border-radius: 10px;
-
-    @include tablet{
-        // flex-direction: column;
-        // justify-content: last baseline;
-        width: 13rem;
-        height: 27rem;
-        padding: 0rem 1rem;
-        // margin-top: 0;
     }
 }
+
+// .overlay{
+//     // transition: all 0.4s ease;
+//     // position: absolute;
+//     // width: 27rem;
+//     // height: 13rem;
+//     // background: rgb(0, 0, 0, 0);
+//     // border-radius: 10px;
+//     // margin-left: -0.5rem;
+
+
+
+//     @include tablet{
+//         // flex-direction: column;
+//         // justify-content: last baseline;
+//         // width: 13rem;
+//         // height: 27rem;
+//         // padding: 0rem 1rem;
+//         // margin-left: -7.5rem;
+//         // margin-top: -0.8rem;
+//         // margin-top: 0;
+//     }
+// }

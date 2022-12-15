@@ -1,11 +1,14 @@
 import './ShowCard.scss';
 import seeingStrangers from '../../assets/seeingStrangers.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function ShowCard (props) {
 console.log('showcard', props.users_id)
     return(
+    <div>
         <div className='card__wrapper'>
+        
+        <Link to={`/shows/${props.show_id}`}>
             <div className='card'>
 
                 <div className='overlay'></div>
@@ -28,9 +31,14 @@ console.log('showcard', props.users_id)
                     <p className='card__text--detail'>{props.doors}</p>
                     
                     <button className='card__category'>{props.genre}</button>
+                    
                 </div>
             </div>
+            </Link>
+
+            <button className='card__delete'>delete</button>
         </div>
+    </div>
     )
 }
 

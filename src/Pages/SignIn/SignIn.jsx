@@ -29,7 +29,9 @@ const navigate = useNavigate();
                     ) : ''}
                 </div>
                     <div>
-                        <button className='form__button--signup'>Sign Up</button>
+                        <button onClick={() => {
+                            navigate('/signup');
+                            }} className='form__button--signup'>Sign Up</button>
                         <label className='form__label--signup'>here if you dont have an account</label>
                     </div>
         </div>

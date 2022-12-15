@@ -10,6 +10,9 @@ body{
 }
 
 .tablet__wrapper{
+display: flex;
+flex-direction: column;
+align-items: center;
 
     @include tablet{
         display: flex;
@@ -19,5 +22,7 @@ body{
     }
     @include desktop{
         margin-top: -3rem;
+        // justify-content: space-around;
+        gap: 3rem;
     }
 }
