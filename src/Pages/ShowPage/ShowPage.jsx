@@ -1,12 +1,36 @@
 import './ShowPage.scss';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ShowCardLarge from '../../Components/ShowCardLarge/ShowCardLarge';
+
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+ 
+mapboxgl.accessToken = 'pk.eyJ1IjoiamFja3N0YXMiLCJhIjoiY2xicHFsOG41MDc1ODNvcDlrNWJpZHlmcSJ9.aRgUrwSf3q2XYMigCNeQNw';
 
 
 function ShowPage (props) {
+
+
+
+    const mapContainer = useRef(null);
+    const map = useRef(null);
+    const [lng, setLng] = useState(-70.9);
+    const [lat, setLat] = useState(42.35);
+    const [zoom, setZoom] = useState(9);
+
+
+    useEffect(() => {
+        if (map.current) return; // initialize map only once
+        map.current = new mapboxgl.Map({
+          container: mapContainer.current,
+          style: 'mapbox://styles/mapbox/streets-v12',
+          center: [lng, lat],
+          zoom: zoom
+        });
+      });
+
+
 
 // State variable for our show data
     const [showData, setShowData] = useState();
@@ -30,8 +54,10 @@ function ShowPage (props) {
         getSingleShow();
     }, []);
 
+
     return(
         <div className='showpage'>
+
             <div>
                 {/* Using the large show card for single show page */}
                 {showData && 
@@ -50,9 +76,14 @@ function ShowPage (props) {
 
                 comment_users_id={props.user.users_id}
                 comment_users_username={props.user.username}
-                user={props.user}
+                // user={props.user}
                 />}
             </div>
+            
+            <div>
+                <div ref={mapContainer} className="map-container" />
+            </div>
+
         </div>
     )
 }
