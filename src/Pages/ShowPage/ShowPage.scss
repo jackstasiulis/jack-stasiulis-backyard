@@ -3,11 +3,21 @@
 
 .showpage{
     display: flex;
+    // flex: 1;
     // margin: 0;
+    height: 100vh;
+    margin-bottom: 8rem;
+    z-index: -2;
 }
 
 .map-container{
+    margin: -3rem 0 0 0;
+    // padding-bottom: 5rem;
     position: absolute;
-    width: 50rem; 
-    height: 30rem;
+    left: 0;
+    width: 100%; 
+    min-height: 45rem;
+    height: auto;
+    z-index: 0;
+    // flex: 3;
 }
