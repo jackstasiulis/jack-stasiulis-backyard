@@ -30,7 +30,6 @@ const slides = [
                     {
                 // maps through show data to provide info to our discover page cards
                         props.allShows.map((singleShow) => (
-                            // <Link to={`/shows/${singleShow.show_id}`}>
                             <ShowCard
                             key={singleShow.show_id}
                             show_id={singleShow.show_id}
@@ -45,9 +44,8 @@ const slides = [
 
                             handleDeleteShow={props.handleDeleteShow}
                             getShows={props.getShows}
-                            // user={props.user}
+                            show_users_id={props.user.users_id}
                              />
-                            // </Link>
                             ))
                     }
                 </div>

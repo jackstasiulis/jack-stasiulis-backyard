@@ -43,7 +43,8 @@ const handleSignUp = (e) => {
 
 // state variables for our sign in
 const [signedIn, setSignedIn] = useState(false);
-const [user, setUser] = useState();
+
+const [user, setUser] = useState({});
 // Mounts component / checks if local storage has the JWT token
 // If token exists verify the JWT and sign in the user!
 useEffect(() => {
@@ -92,6 +93,9 @@ const handleSignIn = (e) => {
       }
     })
     .catch((err) => {
+      alert("shit")
+
+
       console.log(err);
     });
 };
@@ -101,6 +105,8 @@ const handleSignOut = () => {
   setSignedIn(false);
   setUser(null);
   localStorage.removeItem('jwt_token');
+  navigate('/')
+  window.location.reload();
 };
 
 
@@ -123,20 +129,6 @@ const handleSignOut = () => {
 
 
 
-  //   const { showId } = useParams();
-
-  //   const handleDeleteShow = (e) => {
-  //     console.log('hellor')
-  //     e.preventDefault();
-  //     axios
-  //     .delete(`http://localhost:5050/shows/${showId}`)
-  //     .then((res) => {
-  //       getShows();
-  //     })
-  //     .catch((err) => console.log(`unable to delete show: ${err}`))
-  // }
-
-
 
   return (
   //BrowserRouter moved to index.js
@@ -155,7 +147,7 @@ const handleSignOut = () => {
          />
           <Routes>
 
-              <Route path='/' element={<Discover allShows={allShows} getShows={getShows} />} />
+              <Route path='/' element={<Discover allShows={allShows} getShows={getShows} user={user} />} />
               <Route path='/shows/:showId' element={<ShowPage user={user} />} />
               <Route path='/addshows' element={<AddShows user={user} />} />
 

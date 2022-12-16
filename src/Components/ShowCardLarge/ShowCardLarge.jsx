@@ -140,7 +140,7 @@ const handleDeleteComment = (e, comments_id) => {
                                 <p className='cardLarge__comment--name'>{singleComment.username}</p>
                                 <p className='cardLarge__comment--body'>{singleComment.comments_body}</p>
 
-                                {singleComment.users_id == props.comment_users_id ? (
+                                {singleComment.users_id === props.comment_users_id ? (
                                     <button onClick={(e)=> handleDeleteComment(e, singleComment.comments_id)} className='cardLarge__comment--delete'>deleteC</button>
                                 ) : null}
                                 
