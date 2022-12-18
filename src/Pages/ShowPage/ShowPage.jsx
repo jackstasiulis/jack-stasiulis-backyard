@@ -4,19 +4,13 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import ShowCardLarge from '../../Components/ShowCardLarge/ShowCardLarge';
 
-// import arrow from '../../assets/turn-left-arrow-symbol-svg-png-icon-download-35.png'
-
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import "../ShowPage/mapbox-gl.css";
-// import ReactMapGL from 'react-map-gl'
-
-import { Marker } from 'mapbox-gl';
  
 mapboxgl.accessToken = 'pk.eyJ1IjoiamFja3N0YXMiLCJhIjoiY2xicHFsOG41MDc1ODNvcDlrNWJpZHlmcSJ9.aRgUrwSf3q2XYMigCNeQNw';
 
 
 function ShowPage (props) {
-
 
 // State variable for our show data
     const [showData, setShowData] = useState();
@@ -38,53 +32,68 @@ function ShowPage (props) {
     
     useEffect(() => {
         getSingleShow();
-        geoCoder();
     }, []);
 
+    useEffect(() => {
+        if(showData){
+            geoCoder();
+        }
+    }, [showData]);
 
-    const [showLatitude, setShowLatitude] = useState()
-    const [showLongitude, setShowLongitude] = useState()
+
+    // const [showLatitude, setShowLatitude] = useState(null)
+    // const [showLongitude, setShowLongitude] = useState(null)
 
     const  geoCoder  = () => {
     
         const params = {
             access_key: 'fc14be0c0c475848545bf2c929aee05f',
-            query: (showData.address)
-            // query: '2425 w broadway, vancouver, bc'
+            query: (showData.address),
+            country: 'CA',
+            region: 'vancouver'
           }
           
           axios.get('http://api.positionstack.com/v1/forward', {params})
             .then(response => {
-            //   console.log(response.data);
-            //   showLocation = {
-                setShowLatitude(response.data.data[0].latitude)
-                setShowLongitude(response.data.data[0].longitude)
-            //   }
-            //   return showLocation;
+
+
+                const map = new mapboxgl.Map({
+                    container: mapContainer.current,
+                    style: "mapbox://styles/mapbox/streets-v11",
+                    center: [(-123.116226 -0.1), 49.246292],
+                    zoom: 11,
+                  });
+              
+                  // Create marker
+                    new mapboxgl.Marker().setLngLat([response.data.data[0].longitude, response.data.data[0].latitude]).addTo(map)
+
+// console.log(response.data.data[0].longitude)
+// console.log(response.data.data[0].latitude)
+
             }).catch(error => {
               console.log(error);
             });
     };
 
 
-        console.log('lat',showLatitude)
-        console.log(showLongitude)
+        // console.log('lat',showLatitude)
+        // console.log(showLongitude)
 
     
         const mapContainer = useRef(null);
 
-        useEffect(() => {
-            const map = new mapboxgl.Map({
-              container: mapContainer.current,
-              style: "mapbox://styles/mapbox/streets-v11",
-              center: [(-123.116226 -0.1), 49.246292],
-              zoom: 11,
-            });
+        // useEffect(() => {
+        //     // const map = new mapboxgl.Map({
+        //     //   container: mapContainer.current,
+        //     //   style: "mapbox://styles/mapbox/streets-v11",
+        //     //   center: [(-123.116226 -0.1), 49.246292],
+        //     //   zoom: 11,
+        //     // });
         
-            // Create marker
-              new mapboxgl.Marker().setLngLat([showLongitude, showLatitude]).addTo(map)
+        //     // // Create marker
+        //     //   new mapboxgl.Marker().setLngLat([showLongitude, showLatitude]).addTo(map)
     
-          }, [showData]);
+        //   }, []);
 
 
 
