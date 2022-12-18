@@ -178,6 +178,8 @@ const handleSignOut = () => {
               <Route path='/venues' element={<UnderConstruction />} />
 
 
+              <Route path='/profile' element={<UnderConstruction />} />
+
 
 
               <Route path='/signup' element={<SignUp handleSignUp={handleSignUp} />} />

@@ -53,10 +53,6 @@ function Navbar(props) {
                             }><button className='navbar__menu__option'>venues</button>
                         </NavLink>
                         
-
-
-                        
-                        
                         {/* for addshows link */}
                         {props.signedIn ? (
                             <NavLink to='/addshows' className={({isActive}) => 
@@ -71,17 +67,20 @@ function Navbar(props) {
                         )}
                         
 
-
-                        
-
-
                     </div>
 
                     {/* Navbar RIGHT SIDE */}
                     <div className='navbar__menu'>
 
                         <button className='navbar__menu__option'>about</button>
-                        <button className='navbar__menu__option'>profile</button>
+
+
+                        
+                        <NavLink to='/profile' className={({isActive}) => 
+                            'navbar__menu__option' + (isActive || window.location.pathname === '/profile' ? '--active' : null)
+                            }><button className='navbar__menu__option'>profile</button>
+                        </NavLink>
+
 
                         <button className='navbar__menu__option modHide'>hidden</button>
 
