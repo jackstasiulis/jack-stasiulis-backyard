@@ -18,63 +18,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiamFja3N0YXMiLCJhIjoiY2xicHFsOG41MDc1ODNvcDlrN
 function ShowPage (props) {
 
 
-    // const [viewport, setViewport] = useState({
-    //     width: '100%',
-    //     height: '45rem',
-    //     latitude: 49.246292,
-    //     longitude: -123.116226,
-    //     zoom: 7,
-    // });
-
-
-
-    const mapContainer = useRef(null);
-
-    // const map = useRef(null);
-    // const [lng, setLng] = useState(-123.116226);
-    // const [lat, setLat] = useState(49.246292);
-    // const [zoom, setZoom] = useState(7);
-
-    useEffect(() => {
-        const map = new mapboxgl.Map({
-          container: mapContainer.current,
-          style: "mapbox://styles/mapbox/streets-v11",
-          center: [(-123.116226 -0.1), 49.246292],
-          zoom: 11,
-        });
-    
-        // Create default markers
-        // geoJson.features.map((feature) =>
-          new mapboxgl.Marker().setLngLat([-123.10139273414, 49.2642415]).addTo(map)
-        // );
-    
-        // // Add navigation control (the +/- zoom buttons)
-        // map.addControl(new mapboxgl.NavigationControl(), "top-right");
-    
-        // Clean up on unmount
-        // return () => map.remove();
-      }, []);
-
-
-    // useEffect(() => {
-    //     if (map.current) return; // initialize map only once
-    //     map.current = new mapboxgl.Map({
-    //       container: mapContainer.current,
-    //       style: 'mapbox://styles/mapbox/streets-v12',
-    //       center: [(lng - 1), lat],
-    //       zoom: zoom
-    //     });
-    //     // var marker = new mapboxgl.Marker()
-    //     //     .setLngLat([49.2642415, -123.10139273414])
-    //     //     .addTo(map)
-    //   });
-
-
-
-
-
-
-
 // State variable for our show data
     const [showData, setShowData] = useState();
 
@@ -95,9 +38,56 @@ function ShowPage (props) {
     
     useEffect(() => {
         getSingleShow();
+        geoCoder();
     }, []);
 
-    // console.log(showData.address)
+
+    const [showLatitude, setShowLatitude] = useState()
+    const [showLongitude, setShowLongitude] = useState()
+
+    const  geoCoder  = () => {
+    
+        const params = {
+            access_key: 'fc14be0c0c475848545bf2c929aee05f',
+            query: (showData.address)
+            // query: '2425 w broadway, vancouver, bc'
+          }
+          
+          axios.get('http://api.positionstack.com/v1/forward', {params})
+            .then(response => {
+            //   console.log(response.data);
+            //   showLocation = {
+                setShowLatitude(response.data.data[0].latitude)
+                setShowLongitude(response.data.data[0].longitude)
+            //   }
+            //   return showLocation;
+            }).catch(error => {
+              console.log(error);
+            });
+    };
+
+
+        console.log('lat',showLatitude)
+        console.log(showLongitude)
+
+    
+        const mapContainer = useRef(null);
+
+        useEffect(() => {
+            const map = new mapboxgl.Map({
+              container: mapContainer.current,
+              style: "mapbox://styles/mapbox/streets-v11",
+              center: [(-123.116226 -0.1), 49.246292],
+              zoom: 11,
+            });
+        
+            // Create marker
+              new mapboxgl.Marker().setLngLat([showLongitude, showLatitude]).addTo(map)
+    
+          }, [showData]);
+
+
+
 
 
     return(
