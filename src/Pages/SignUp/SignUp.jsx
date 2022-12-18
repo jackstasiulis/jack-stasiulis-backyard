@@ -7,22 +7,44 @@ const navigate = useNavigate();
 
     return(
         <div className='signup'>
-                <form className='signup__form' onSubmit={props.handleSignUp}>
+<h2 className='form__title'>Sign Up</h2>
+    <div className='form__container'>
 
-                    <label className='signup__form--label' >email</label>
-                    <input className='signup__form--input' type="email" name='email' placeholder='email' />
+        <form className='form' onSubmit={props.handleSignUp} >
+            <div className='form__cont'>
+                <div className='form__subCont'>
 
-                    <label className='signup__form--label' >username</label>
-                    <input className='signup__form--input' type="username" name='username' placeholder='username' />
+                    <label className='form__label' >Email</label>
+                    <input className='form__input' type="email" name='email' placeholder='Please input your email' />
 
-                    <label className='signup__form--label' >password</label>
-                    <input className='signup__form--input' type="password" name='password' placeholder='password' />
+                    <label className='form__label' >Username</label>
+                    <input className='form__input' type="username" name='username' placeholder='Please input your username' />
 
-                    <button className='signup__form--button' type='submit'>Sign in</button>
-                </form>
+                    <label className='form__label' >Password</label>
+                    <input className='form__input' type="password" name='password' placeholder='Please input your password' />
+                
+                    <div className='form__button--container'>
+                        <button className='form__button'>Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+        <div className='signin__createAccount'>
+            <div className='signin__createAccount--wrapper'>
+                <button onClick={() => {
+                    navigate('/signin');
+                    }} className='form__button--signup'>Sign In</button>
+                <label className='form__label--signup'>here if you already have an account</label>
+            </div>
         </div>
+</div>
     );
 }
+
+
+
 
 export default SignUp;
 

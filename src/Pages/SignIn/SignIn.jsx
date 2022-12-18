@@ -28,11 +28,14 @@ const navigate = useNavigate();
                     </form>
                     ) : ''}
                 </div>
-                    <div>
-                        <button onClick={() => {
-                            navigate('/signup');
-                            }} className='form__button--signup'>Sign Up</button>
-                        <label className='form__label--signup'>here if you dont have an account</label>
+                    
+                    <div className='signin__createAccount'>
+                        <div className='signin__createAccount--wrapper'>
+                            <button onClick={() => {
+                                navigate('/signup');
+                                }} className='form__button--signup'>Sign Up</button>
+                            <label className='form__label--signup'>here if you dont have an account</label>
+                        </div>
                     </div>
         </div>
     );

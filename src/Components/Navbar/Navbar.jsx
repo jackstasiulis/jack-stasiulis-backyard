@@ -41,8 +41,21 @@ function Navbar(props) {
                             'navbar__menu__option' + (isActive || window.location.pathname === '/' ? '--active' : null)
                             }><button className='navbar__menu__option'>discover</button>
                         </NavLink>
-                        <button className='navbar__menu__option'>artists</button>
-                        <button className='navbar__menu__option'>venues</button>
+
+                        
+                        <NavLink to='/artists' className={({isActive}) => 
+                            'navbar__menu__option' + (isActive || window.location.pathname === '/artists' ? '--active' : null)
+                            }><button className='navbar__menu__option'>artists</button>
+                        </NavLink>
+
+                        <NavLink to='/venues' className={({isActive}) => 
+                            'navbar__menu__option' + (isActive || window.location.pathname === '/venues' ? '--active' : null)
+                            }><button className='navbar__menu__option'>venues</button>
+                        </NavLink>
+                        
+
+
+                        
                         
                         {/* for addshows link */}
                         {props.signedIn ? (

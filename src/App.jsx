@@ -11,6 +11,7 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast'
 import SignIn from './Pages/SignIn/SignIn';
 import SignUp from './Pages/SignUp/SignUp';
+import UnderConstruction from './Components/UnderConstruction/UnderConstruction';
 
 
 function App() {
@@ -21,6 +22,13 @@ const navigate = useNavigate();
 // Function to register a user!
 const handleSignUp = (e) => {
   e.preventDefault();
+  if(
+        !e.target.email.value ||
+        !e.target.username.value ||
+        !e.target.password.value
+        ) {
+            toast.success('Please fill in each field')
+        } else {
   axios
   .post('http://localhost:5050/signup', {
     // uses email, username, and pass to sign up
@@ -32,12 +40,16 @@ const handleSignUp = (e) => {
     if(res.data.token) {
       loadProfile(res.data.token);
       localStorage.setItem('jwt_token', res.data.token);
-      navigate('/')
     }
+  })
+  .then(() => {
+    navigate('/signin')
   })
   .catch((err) => {
     console.log(err);
+    toast.success('Create account unsuccessful')
   });
+}
 };
 
 
@@ -80,6 +92,13 @@ const loadProfile = (jwtToken) => {
 // returns JWT if successful
 const handleSignIn = (e) => {
   e.preventDefault();
+  if(
+    !e.target.username.value ||
+    !e.target.password.value
+    ) {
+        toast.success('Please fill in each field')
+    } else {
+
   axios
     .post('http://localhost:5050/signin', {
       username: e.target.username.value,
@@ -89,16 +108,21 @@ const handleSignIn = (e) => {
       if(res.data.token) {
         loadProfile(res.data.token);
         localStorage.setItem('jwt_token', res.data.token);
-        navigate('/')
+        toast.success('Signed in successfully')
       }
     })
+
+    .then((res) => {
+      navigate('/')
+    })
+
     .catch((err) => {
-      alert("shit")
-
-
+      toast.success('Wrong username or password')
       console.log(err);
-    });
+    })
+  }
 };
+
 
 // Function to sign a user out
 const handleSignOut = () => {
@@ -150,6 +174,11 @@ const handleSignOut = () => {
               <Route path='/' element={<Discover allShows={allShows} getShows={getShows} user={user} />} />
               <Route path='/shows/:showId' element={<ShowPage user={user} />} />
               <Route path='/addshows' element={<AddShows user={user} />} />
+              <Route path='/artists' element={<UnderConstruction />} />
+              <Route path='/venues' element={<UnderConstruction />} />
+
+
+
 
               <Route path='/signup' element={<SignUp handleSignUp={handleSignUp} />} />
               <Route path='/signin' element={<SignIn

@@ -41,8 +41,6 @@ function ShowPage (props) {
     }, [showData]);
 
 
-    // const [showLatitude, setShowLatitude] = useState(null)
-    // const [showLongitude, setShowLongitude] = useState(null)
 
     const  geoCoder  = () => {
     
@@ -56,46 +54,25 @@ function ShowPage (props) {
           axios.get('http://api.positionstack.com/v1/forward', {params})
             .then(response => {
 
-
                 const map = new mapboxgl.Map({
                     container: mapContainer.current,
                     style: "mapbox://styles/mapbox/streets-v11",
-                    center: [(-123.116226 -0.1), 49.246292],
+                    // center: [(-123.116226 -0.1), 49.246292],
+                    center: [(-123.116226 +0.01), (49.246292 +0.08)],
                     zoom: 11,
                   });
               
                   // Create marker
                     new mapboxgl.Marker().setLngLat([response.data.data[0].longitude, response.data.data[0].latitude]).addTo(map)
 
-// console.log(response.data.data[0].longitude)
-// console.log(response.data.data[0].latitude)
 
             }).catch(error => {
               console.log(error);
             });
     };
 
-
-        // console.log('lat',showLatitude)
-        // console.log(showLongitude)
-
     
         const mapContainer = useRef(null);
-
-        // useEffect(() => {
-        //     // const map = new mapboxgl.Map({
-        //     //   container: mapContainer.current,
-        //     //   style: "mapbox://styles/mapbox/streets-v11",
-        //     //   center: [(-123.116226 -0.1), 49.246292],
-        //     //   zoom: 11,
-        //     // });
-        
-        //     // // Create marker
-        //     //   new mapboxgl.Marker().setLngLat([showLongitude, showLatitude]).addTo(map)
-    
-        //   }, []);
-
-
 
 
 
