@@ -17,8 +17,8 @@ const handleDeleteShow = (e) => {
     })
     .catch((err) => console.log(`unable to delete show: ${err}`))
 }
-console.log("yoYOYOYO", props.users_id)
-console.log("ayAYAYAY", props.show_users_id)
+// console.log("yoYOYOYO", props.users_id)
+// console.log("ayAYAYAY", props.show_users_id)
 
     return(
         

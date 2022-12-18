@@ -4,7 +4,13 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import ShowCardLarge from '../../Components/ShowCardLarge/ShowCardLarge';
 
-import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+// import arrow from '../../assets/turn-left-arrow-symbol-svg-png-icon-download-35.png'
+
+import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import "../ShowPage/mapbox-gl.css";
+// import ReactMapGL from 'react-map-gl'
+
+import { Marker } from 'mapbox-gl';
  
 mapboxgl.accessToken = 'pk.eyJ1IjoiamFja3N0YXMiLCJhIjoiY2xicHFsOG41MDc1ODNvcDlrNWJpZHlmcSJ9.aRgUrwSf3q2XYMigCNeQNw';
 
@@ -12,23 +18,60 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiamFja3N0YXMiLCJhIjoiY2xicHFsOG41MDc1ODNvcDlrN
 function ShowPage (props) {
 
 
+    // const [viewport, setViewport] = useState({
+    //     width: '100%',
+    //     height: '45rem',
+    //     latitude: 49.246292,
+    //     longitude: -123.116226,
+    //     zoom: 7,
+    // });
+
+
 
     const mapContainer = useRef(null);
-    const map = useRef(null);
-    const [lng, setLng] = useState(-70.9);
-    const [lat, setLat] = useState(42.35);
-    const [zoom, setZoom] = useState(9);
 
+    // const map = useRef(null);
+    // const [lng, setLng] = useState(-123.116226);
+    // const [lat, setLat] = useState(49.246292);
+    // const [zoom, setZoom] = useState(7);
 
     useEffect(() => {
-        if (map.current) return; // initialize map only once
-        map.current = new mapboxgl.Map({
+        const map = new mapboxgl.Map({
           container: mapContainer.current,
-          style: 'mapbox://styles/mapbox/streets-v12',
-          center: [lng, lat],
-          zoom: zoom
+          style: "mapbox://styles/mapbox/streets-v11",
+          center: [(-123.116226 -0.1), 49.246292],
+          zoom: 11,
         });
-      });
+    
+        // Create default markers
+        // geoJson.features.map((feature) =>
+          new mapboxgl.Marker().setLngLat([-123.10139273414, 49.2642415]).addTo(map)
+        // );
+    
+        // // Add navigation control (the +/- zoom buttons)
+        // map.addControl(new mapboxgl.NavigationControl(), "top-right");
+    
+        // Clean up on unmount
+        // return () => map.remove();
+      }, []);
+
+
+    // useEffect(() => {
+    //     if (map.current) return; // initialize map only once
+    //     map.current = new mapboxgl.Map({
+    //       container: mapContainer.current,
+    //       style: 'mapbox://styles/mapbox/streets-v12',
+    //       center: [(lng - 1), lat],
+    //       zoom: zoom
+    //     });
+    //     // var marker = new mapboxgl.Marker()
+    //     //     .setLngLat([49.2642415, -123.10139273414])
+    //     //     .addTo(map)
+    //   });
+
+
+
+
 
 
 
@@ -53,6 +96,8 @@ function ShowPage (props) {
     useEffect(() => {
         getSingleShow();
     }, []);
+
+    // console.log(showData.address)
 
 
     return(
@@ -79,9 +124,12 @@ function ShowPage (props) {
                 // user={props.user}
                 />}
             </div>
-            
+
             <div>
                 <div ref={mapContainer} className="map-container" />
+
+                
+
             </div>
 
         </div>
