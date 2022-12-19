@@ -2,6 +2,7 @@ import './ShowCard.scss';
 import seeingStrangers from '../../assets/seeingStrangers.png';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import deleteButton from '../../assets/delete.png'
 
 function ShowCard (props) {
 
@@ -29,6 +30,8 @@ const handleDeleteShow = (e) => {
         <Link to={`/shows/${props.show_id}`}>
             <div className='card'>
 
+            
+
                 <div className='overlay'></div>
                 
                 <div className='card__img--container'>
@@ -49,15 +52,23 @@ const handleDeleteShow = (e) => {
                     <p className='card__text--detail'>{props.doors}</p>
                     
                     <button className='card__category'>{props.genre}</button>
-                    
+
+                    {props.show_users_id && props.users_id === props.show_users_id ? (
+                         <button onClick={handleDeleteShow} className='card__delete'>
+                            <img src={deleteButton} alt="" />
+                        </button>
+                     ) : null}
+
                 </div>
             </div>
             </Link>
             
 
-            {props.users_id === props.show_users_id ? (
-                <button onClick={handleDeleteShow} className='card__delete'>delete Show</button>
-            ) : null}
+            {/* {props.show_users_id && props.users_id === props.show_users_id ? (
+                <button onClick={handleDeleteShow} className='card__delete'>
+                    <img src={deleteButton} alt="" />
+                    </button>
+            ) : null} */}
             
             {/* {singleComment.users_id == props.comment_users_id ? (
                                     <button onClick={(e)=> handleDeleteComment(e, singleComment.comments_id)} className='cardLarge__comment--delete'>deleteC</button>

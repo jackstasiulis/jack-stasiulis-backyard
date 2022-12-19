@@ -109,9 +109,15 @@
         }
     }
     &__delete{
+        width: fit-content;
         position: absolute;
         height: 1.5rem;
-        z-index: 100000000;
+        background: none;
+        border: none;
+        margin: 0.6rem 1rem 1rem 0.4rem;
+        // top: 0;
+        // right: 0;
+        z-index: 99999999999999;
 
     }
 }

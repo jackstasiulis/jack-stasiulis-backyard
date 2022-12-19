@@ -116,15 +116,17 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
 
                                     <label className='form__label' htmlFor="">Cover Photo</label>
                                       
-                                        {/* Input field for image sends data to Cloudinary */}
-                                        <div>
-                                            <label className='file__upload--label' htmlFor="imageUploadID"></label>
-                                            <input id='imageUploadID' class='file__upload' type="file" name='image' onChange={(e) => {
-                                                setImageSelected(e.target.files[0])
-                                                }}/>
-                                        </div>
-                                        <div>
-                                            <button className='form__button--upload' onClick={uploadImage}>upload here</button>
+                                      <div className='file__upload'>
+                                            {/* Input field for image sends data to Cloudinary */}
+                                            <div>
+                                                <label className='file__upload--label' htmlFor="imageUploadID">Choose Image</label>
+                                                <input id='imageUploadID' class='file__upload' type="file" name='image' onChange={(e) => {
+                                                    setImageSelected(e.target.files[0])
+                                                    }}/>
+                                            </div>
+                                            <div>
+                                                <button className='file__upload--label' onClick={uploadImage}>Click to Upload</button>
+                                            </div>
                                         </div>
 
                                     {/* Remaining text inputs - some with onChange for live preview */}
