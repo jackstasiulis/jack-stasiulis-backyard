@@ -72,7 +72,14 @@ function Navbar(props) {
                     {/* Navbar RIGHT SIDE */}
                     <div className='navbar__menu'>
 
-                        <button className='navbar__menu__option'>about</button>
+
+                        <NavLink to='/about' className={({isActive}) => 
+                            'navbar__menu__option' + (isActive || window.location.pathname === '/about' ? '--active' : null)
+                            }><button className='navbar__menu__option'>about</button>
+                        </NavLink>
+
+
+                        
 
 
                         

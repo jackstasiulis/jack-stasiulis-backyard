@@ -1,0 +1,46 @@
+@use '../../Styles/variables.scss' as *;
+@use '../../Styles/mixins.scss' as *;
+
+.about{
+    display: flex;
+    justify-content: center;
+    &__text{
+        
+        &--wrapper{
+            background: $BYBlack;
+            // background: $BYWhite;
+            // background: $BYRed;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 35rem;
+            width: 25rem;
+            border: 3px solid $BYWhite;
+            border-radius: 5px;
+            @include tablet{
+                height: 20rem;
+                width: 44rem;
+            }
+            
+        }
+        &--title{
+            color: $BYWhite;
+            // color: $BYBlack;
+
+            margin-bottom: 1rem;
+        }
+        &--text{
+            margin-bottom: 1rem;
+            color: $BYRed;
+            color: $BYWhite;
+            text-align: center;
+            width: 22rem;
+            @include tablet{
+            width: 40rem;
+
+            }
+        }
+    }
+}

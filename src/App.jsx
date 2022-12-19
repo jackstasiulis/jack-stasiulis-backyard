@@ -12,6 +12,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import SignIn from './Pages/SignIn/SignIn';
 import SignUp from './Pages/SignUp/SignUp';
 import UnderConstruction from './Components/UnderConstruction/UnderConstruction';
+import About from './Pages/About/About';
 
 
 function App() {
@@ -179,9 +180,8 @@ const handleSignOut = () => {
 
 
               <Route path='/profile' element={<UnderConstruction />} />
-
-
-
+              <Route path='/about' element={<About />} />
+          
               <Route path='/signup' element={<SignUp handleSignUp={handleSignUp} />} />
               <Route path='/signin' element={<SignIn
                                                 signedIn={signedIn}

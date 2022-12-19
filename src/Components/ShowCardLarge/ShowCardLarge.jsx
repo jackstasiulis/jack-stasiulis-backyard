@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { v4 as uuidv4 } from "uuid";
 import toast from 'react-hot-toast'
+import deleteButton from '../../assets/delete.png'
 
 function ShowCardLarge (props) {
 // declaring our params for showId and state variable for the all comments state variable
@@ -141,7 +142,9 @@ const handleDeleteComment = (e, comments_id) => {
                                 <p className='cardLarge__comment--body'>{singleComment.comments_body}</p>
 
                                 {singleComment.users_id === props.comment_users_id ? (
-                                    <button onClick={(e)=> handleDeleteComment(e, singleComment.comments_id)} className='cardLarge__comment--delete'>deleteC</button>
+                                    <button onClick={(e)=> handleDeleteComment(e, singleComment.comments_id)} className='cardLarge__comment--delete'>
+                                        <img src={deleteButton} alt="" />
+                                        </button>
                                 ) : null}
                                 
 

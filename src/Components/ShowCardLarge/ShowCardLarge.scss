@@ -156,7 +156,10 @@
             outline: none;
         }
         &--delete{
-            
+            width: fit-content;
+            background: none;
+            border: none;
+            z-index: 99999999999999;
         }
     }
 }
