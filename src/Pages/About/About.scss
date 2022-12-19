@@ -8,9 +8,6 @@
         
         &--wrapper{
             background: $BYBlack;
-            // background: $BYWhite;
-            // background: $BYRed;
-
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -23,11 +20,9 @@
                 height: 20rem;
                 width: 44rem;
             }
-            
         }
         &--title{
             color: $BYWhite;
-            // color: $BYBlack;
 
             margin-bottom: 1rem;
         }
@@ -39,7 +34,6 @@
             width: 22rem;
             @include tablet{
             width: 40rem;
-
             }
         }
     }

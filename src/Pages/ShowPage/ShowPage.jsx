@@ -34,6 +34,7 @@ function ShowPage (props) {
         getSingleShow();
     }, []);
 
+// Use Effect calls geoCoder function only when showData is pulled from the server
     useEffect(() => {
         if(showData){
             geoCoder();
@@ -41,7 +42,7 @@ function ShowPage (props) {
     }, [showData]);
 
 
-
+// Geocoder translates address data from showData to Longitude and Latitude for mapbox
     const  geoCoder  = () => {
     
         const params = {
@@ -53,27 +54,23 @@ function ShowPage (props) {
           
           axios.get('http://api.positionstack.com/v1/forward', {params})
             .then(response => {
-
+// Mapbox then renders the map
                 const map = new mapboxgl.Map({
                     container: mapContainer.current,
-                    style: "mapbox://styles/mapbox/streets-v11",
+                    style: "mapbox://styles/jackstas/clbu8yc32000514s4m26ba930",
                     // center: [(-123.116226 -0.1), 49.246292],
                     center: [(-123.116226 +0.01), (49.246292 +0.08)],
                     zoom: 11,
                   });
               
-                  // Create marker
+// Mapbox then creates the marker
                     new mapboxgl.Marker().setLngLat([response.data.data[0].longitude, response.data.data[0].latitude]).addTo(map)
-
 
             }).catch(error => {
               console.log(error);
             });
     };
-
-    
         const mapContainer = useRef(null);
-
 
 
     return(
@@ -97,15 +94,11 @@ function ShowPage (props) {
 
                 comment_users_id={props.user.users_id}
                 comment_users_username={props.user.username}
-                // user={props.user}
                 />}
             </div>
 
             <div>
                 <div ref={mapContainer} className="map-container" />
-
-                
-
             </div>
 
         </div>

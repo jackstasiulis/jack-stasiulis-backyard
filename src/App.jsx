@@ -135,8 +135,6 @@ const handleSignOut = () => {
 };
 
 
-
-
   const [allShows, setAllShows] = useState([])
 
 // Function to get all shows for the discover page

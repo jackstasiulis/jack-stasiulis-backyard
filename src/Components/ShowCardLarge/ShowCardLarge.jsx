@@ -69,8 +69,7 @@ function ShowCardLarge (props) {
         .catch((err) => console.log('www', err))
     }
 
-    
-
+// Function to delete comments!
 const handleDeleteComment = (e, comments_id) => {
     e.preventDefault();
     console.log('HELLO', comments_id)
@@ -83,11 +82,6 @@ const handleDeleteComment = (e, comments_id) => {
     })
     .catch((err) => console.log(`unable to delete show: ${err}`))
 }
-
-
-
-
-
 
     return(
             
@@ -146,10 +140,6 @@ const handleDeleteComment = (e, comments_id) => {
                                         <img src={deleteButton} alt="" />
                                         </button>
                                 ) : null}
-                                
-
-
-
                             </div>
                         ))
                         // if no comments, render this

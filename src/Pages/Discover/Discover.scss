@@ -2,11 +2,7 @@
 @use '../../Styles/mixins.scss' as *;
 
 body{
-    // background-image: url(../../assets/Map-background-placeholder.jpg);
     background-repeat: no-repeat;
-    
-    // margin: 1rem;
-    
 }
 
 .tablet__wrapper{
@@ -22,7 +18,6 @@ align-items: center;
     }
     @include desktop{
         margin-top: -3rem;
-        // justify-content: space-around;
         gap: 3rem;
     }
 }

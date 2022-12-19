@@ -2,7 +2,6 @@
 @use '../../Styles/mixins.scss' as *;
 
 .signin{
-    // width: 10rem;
     &__form{
         display: flex;
         flex-direction: column;

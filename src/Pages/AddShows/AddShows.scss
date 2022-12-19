@@ -2,13 +2,10 @@
 @use '../../Styles/mixins.scss' as *;
 
 .addShows{
-
     &__wrapper{
         @include tablet{
             display: flex;
-
         }
-        
     }
 }
 
@@ -22,13 +19,10 @@
         margin: -1rem 2rem 3rem;
         font-size: 2rem;
         color: $BYRed;
-        // background: $BYWhite;
-        // width: 19rem;
-        @include desktop{
+            @include desktop{
             margin: -3rem 2rem 3rem;
             font-size: 3rem;
             text-align: inherit;
-
         }
     }
     &__container{
@@ -40,20 +34,6 @@
         display: flex;
         flex-direction: column;
         background-image: url(../../assets/Backyard-logo-black.png);
-
-        // &::before{
-        //     content: "";
-        //     background-image: url(../../assets/Backyard-logo-white.png);
-        //     // background-size: cover;
-        //     position: relative;
-        //     top: 0px;
-        //     right: 0px;
-        //     bottom: 0px;
-        //     left: 0px;
-        //     opacity: 0.2;
-        //     z-index: -1000;
-
-        // }
         @include tablet{
             width: 48rem;
             margin: -2rem 2rem 2rem;
@@ -73,10 +53,8 @@
         flex: 1;
     }
     &__label{
-        // width: fit-content;
         font-size: 1.2rem;
         font-weight: 700;
-        // background-color: $BYBlack;
         color: $BYWhite;
         margin: 0.6rem 0 0.2rem;
 
@@ -101,7 +79,6 @@
     }
     &__textArea{
         resize: none;
-        // margin-bottom: 1rem;
         height: 2rem;
         @include tablet{
             height: inherit;
@@ -197,16 +174,4 @@
         }
     }
 }
-
-
-    
-
-
-
-
-
-
-
-
-
 }

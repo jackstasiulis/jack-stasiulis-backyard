@@ -3,19 +3,15 @@
 
 
 .card{
-    margin: 2rem 0;
-    // width: 85%;
+    margin: 1rem auto;
     width: 27rem;
     height: 13rem;
     background: rgb(245, 245, 245, 0.6);
     border-radius: 10px;
     display: flex;
     justify-content: space-around;
-    // gap: 1rem;
-    // z-index: -100;
 
     &:hover .overlay{
-        // position: absolute;
         background: rgb(0, 0, 0, 0.4);
     }
 
@@ -30,12 +26,11 @@
         margin: 2rem 0rem;
     }
     &__wrapper{
-        // width: 16rem;
         @include tablet{
             margin: 0rem 1rem;
         }
         @include desktop{
-            margin: 1rem 0rem;
+            margin: 0rem 0rem;
         }
     }
 
@@ -57,12 +52,8 @@
 
     &__text{
         @include tablet{
-            // margin-right: 1rem;
             margin-top: -2rem;
         }
-
-
-
 
         &--label{
             margin-top: 1rem;
@@ -104,9 +95,6 @@
         margin-top: 0.5rem;
         margin-left: 0rem;
 
-        @include tablet{
-            // margin-left: 2.7rem;
-        }
     }
     &__delete{
         width: fit-content;
@@ -115,32 +103,7 @@
         background: none;
         border: none;
         margin: 0.6rem 1rem 1rem 0.4rem;
-        // top: 0;
-        // right: 0;
         z-index: 99999999999999;
 
     }
 }
-
-// .overlay{
-//     // transition: all 0.4s ease;
-//     // position: absolute;
-//     // width: 27rem;
-//     // height: 13rem;
-//     // background: rgb(0, 0, 0, 0);
-//     // border-radius: 10px;
-//     // margin-left: -0.5rem;
-
-
-
-//     @include tablet{
-//         // flex-direction: column;
-//         // justify-content: last baseline;
-//         // width: 13rem;
-//         // height: 27rem;
-//         // padding: 0rem 1rem;
-//         // margin-left: -7.5rem;
-//         // margin-top: -0.8rem;
-//         // margin-top: 0;
-//     }
-// }

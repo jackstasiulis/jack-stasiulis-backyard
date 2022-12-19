@@ -18,19 +18,14 @@ const handleDeleteShow = (e) => {
     })
     .catch((err) => console.log(`unable to delete show: ${err}`))
 }
-// console.log("yoYOYOYO", props.users_id)
-// console.log("ayAYAYAY", props.show_users_id)
 
     return(
         
     <div>
         <div className='card__wrapper'>
         
-        
         <Link to={`/shows/${props.show_id}`}>
             <div className='card'>
-
-            
 
                 <div className='overlay'></div>
                 
@@ -62,18 +57,6 @@ const handleDeleteShow = (e) => {
                 </div>
             </div>
             </Link>
-            
-
-            {/* {props.show_users_id && props.users_id === props.show_users_id ? (
-                <button onClick={handleDeleteShow} className='card__delete'>
-                    <img src={deleteButton} alt="" />
-                    </button>
-            ) : null} */}
-            
-            {/* {singleComment.users_id == props.comment_users_id ? (
-                                    <button onClick={(e)=> handleDeleteComment(e, singleComment.comments_id)} className='cardLarge__comment--delete'>deleteC</button>
-                                ) : null} */}
-
 
         </div>
     </div>

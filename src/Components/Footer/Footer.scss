@@ -11,8 +11,6 @@
     bottom: 0;
     
     &__elements{
-        // display: flex;
-        // align-items: center;
         width: 100%;
         &--container{
             width: 100%;
@@ -22,13 +20,8 @@
             justify-content: space-between;
         }
         
-        
-        
         &--logo{
             width: 12rem;
-            // opacity: 0.7;
-            // height
-
         }
 
         &--text{
@@ -38,10 +31,7 @@
         &--shit{
             font-size: 0.8rem;
             color: $BYWhite;
-            // position: absolute;
             margin-bottom: 4rem;
         }
     }
-
-    
 }

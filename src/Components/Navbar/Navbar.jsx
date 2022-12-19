@@ -41,7 +41,6 @@ function Navbar(props) {
                             'navbar__menu__option' + (isActive || window.location.pathname === '/' ? '--active' : null)
                             }><button className='navbar__menu__option'>discover</button>
                         </NavLink>
-
                         
                         <NavLink to='/artists' className={({isActive}) => 
                             'navbar__menu__option' + (isActive || window.location.pathname === '/artists' ? '--active' : null)
@@ -77,17 +76,11 @@ function Navbar(props) {
                             'navbar__menu__option' + (isActive || window.location.pathname === '/about' ? '--active' : null)
                             }><button className='navbar__menu__option'>about</button>
                         </NavLink>
-
-
-                        
-
-
                         
                         <NavLink to='/profile' className={({isActive}) => 
                             'navbar__menu__option' + (isActive || window.location.pathname === '/profile' ? '--active' : null)
                             }><button className='navbar__menu__option'>profile</button>
                         </NavLink>
-
 
                         <button className='navbar__menu__option modHide'>hidden</button>
 
@@ -109,9 +102,6 @@ function Navbar(props) {
                         {props.signedIn ? (
                             <p className='navbar__menu--username'>{props.username}</p>
                         ) : null}
-                        
-
-
                         
                     </div>
                 </div>
