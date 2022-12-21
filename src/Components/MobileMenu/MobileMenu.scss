@@ -6,7 +6,6 @@
     position: fixed;
     top: 0;
     left: -75%;
-    // background-color: rgb(33, 31, 51);
     background: linear-gradient(to right, rgb(33, 31, 51, 0.8), 
     rgb(33, 31, 51, 0.8), rgb(33, 31, 51, 0.8), rgba(0,0,0,0));
     height: 100vh;
@@ -28,15 +27,11 @@
         &.active{
             font-weight: 900;
             background: $BYRed;
-            // font-size: 10rem;
-            
         }
         &:hover{
             background: $BYRed;
         }
         &--container{
-            // display: flex;
-            // flex-direction: column;
             margin: 7rem 0 0 3rem;
         }
     }
@@ -47,6 +42,5 @@
         font-size: 1rem;
         color: $BYWhite;
         position: absolute;
-        // margin-left: 3rem;
     }
 }
