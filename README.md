@@ -22,7 +22,9 @@
   <a href="#download">Download</a> •
 </p>
 
-![screenshot](https://res.cloudinary.com/do5k651qd/image/upload/v1671417437/Screen_Shot_2022-12-18_at_5.49.30_PM_zdqvne.png)
+<!-- ![alt-text-1](image1.png "title-1") ![alt-text-2](image2.png "title-2") -->
+
+<img src="https://res.cloudinary.com/do5k651qd/image/upload/v1671417437/Screen_Shot_2022-12-18_at_5.49.30_PM_zdqvne.png" alt="screenshot1" height="320"><img src="https://res.cloudinary.com/do5k651qd/image/upload/v1671426701/Screen_Shot_2022-12-18_at_9.11.17_PM_h8cefn.png" alt="screenshot2" height="320">
 
 ## Key Features
 
