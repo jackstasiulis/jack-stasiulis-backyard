@@ -44,14 +44,17 @@ function ShowPage (props) {
 
 // Geocoder translates address data from showData to Longitude and Latitude for mapbox
     const  geoCoder  = () => {
-    
+
         const params = {
-            access_key: '35b254011d03f77b4e0f63e52d339271',
+            access_key: '1c8fd1ab51c93de7426275325e1146f9',
             query: (showData.address),
             country: 'CA',
-            region: 'vancouver'
+            region: 'vancouver',
+            // baseURL: 'http://',
+            // httpsAgent: false,
+            // httpAgent: true
           }
-          
+
           axios.get('http://api.positionstack.com/v1/forward', {params})
             .then(response => {
 // Mapbox then renders the map

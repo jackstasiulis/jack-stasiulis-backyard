@@ -13,12 +13,12 @@ function MobileMenu ({toggleHam, signedIn, handleSignOut, username}) {
                     </NavLink>
 
                     <NavLink to='/artists' className={({isActive}) => 
-                        'mobileMenu__option' + (isActive || window.location.pathname === '/artists' ? '--active' : null)
+                        'mobileMenu__option' + (isActive || window.location.pathname === '/artists' ? ' active' : null)
                         }><p onClick={toggleHam} className='mobileMenu__option'>artists</p>
                     </NavLink>
 
                     <NavLink to='/venues' className={({isActive}) => 
-                        'mobileMenu__option' + (isActive || window.location.pathname === '/venues' ? '--active' : null)
+                        'mobileMenu__option' + (isActive || window.location.pathname === '/venues' ? ' active' : null)
                         }><p onClick={toggleHam} className='mobileMenu__option'>venues</p>
                     </NavLink>
 
@@ -26,23 +26,20 @@ function MobileMenu ({toggleHam, signedIn, handleSignOut, username}) {
                     {/* for MOBILE addshows link */}
                     {signedIn ? (
                             <NavLink to='/addshows' className={({isActive}) => 
-                                'mobileMenu__option' + (isActive || window.location.pathname === '/addshows' ? '--active' : null)
+                                'mobileMenu__option' + (isActive || window.location.pathname === '/addshows' ? ' active' : null)
                                 }><button onClick={toggleHam} className='mobileMenu__option'>+shows</button>
                             </NavLink>
                         ) : (
                             <NavLink to='/signin' className={({isActive}) => 
-                                'mobileMenu__option' + (isActive === '/signin' ? '--active' : null)
+                                'mobileMenu__option' + (isActive === '/signin' ? ' active' : null)
                                 }><button onClick={toggleHam} className='mobileMenu__option'>+shows</button>
                             </NavLink>
                         )}
 
                     <NavLink to='/profile' className={({isActive}) => 
-                        'mobileMenu__option' + (isActive || window.location.pathname === '/profile' ? '--active' : null)
+                        'mobileMenu__option' + (isActive || window.location.pathname === '/profile' ? ' active' : null)
                         }><p onClick={toggleHam} className='mobileMenu__option'>profile</p>
                     </NavLink>  
-
-                    {/* <p onClick={toggleHam} className='mobileMenu__option'>profile</p> */}
-
 
 
                     {/* for MOBILE sign in link */}
@@ -65,10 +62,8 @@ function MobileMenu ({toggleHam, signedIn, handleSignOut, username}) {
                             <p className='mobileMenu__username'>{username}</p>
                         ) : null}
 
-                    {/* <p onClick={toggleHam} className='mobileMenu__option'>about</p> */}
-                    
                     <NavLink to='/about' className={({isActive}) => 
-                        'mobileMenu__option' + (isActive || window.location.pathname === '/about' ? '--active' : null)
+                        'mobileMenu__option' + (isActive || window.location.pathname === '/about' ? ' active' : null)
                         }><p onClick={toggleHam} className='mobileMenu__option'>about</p>
                     </NavLink>  
 
