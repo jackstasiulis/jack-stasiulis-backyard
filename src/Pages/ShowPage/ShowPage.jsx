@@ -51,8 +51,8 @@ function ShowPage (props) {
             country: 'CA',
             region: 'vancouver',
             // baseURL: 'http://',
-            // httpsAgent: false,
-            // httpAgent: true
+            httpsAgent: false,
+            httpAgent: true
           }
 
           axios.get('http://api.positionstack.com/v1/forward', {params})

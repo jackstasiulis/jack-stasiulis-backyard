@@ -14,7 +14,7 @@ function About () {
 
                 <h3 className='about__text--text'>
                     Make an account and engage with other users in your area. 
-                    Check out whats happening near by or leave a comment on an artists post.
+                    Check out whats happening nearby or leave a comment on an artists post.
                     </h3>
             </div>
         </div>
