@@ -64,13 +64,10 @@ function Navbar(props) {
                                 }><button className='navbar__menu__option'>+shows</button>
                             </NavLink>
                         )}
-                        
-
                     </div>
 
                     {/* Navbar RIGHT SIDE */}
                     <div className='navbar__menu'>
-
 
                         <NavLink to='/about' className={({isActive}) => 
                             'navbar__menu__option' + (isActive || window.location.pathname === '/about' ? '--active' : null)
