@@ -41,7 +41,6 @@ const [isPlaying, setIsPlaying] = useState(true);
     }
   },[currentIndex])
 
-
     return(
        <div className='carousel__exterior'>
         <div className='carousel__leftArrow' onClick={goToPrevious}>↽</div>
@@ -59,7 +58,6 @@ const [isPlaying, setIsPlaying] = useState(true);
         </div>
        </div>
     )
-    
 }
 
 export default Carousel;
