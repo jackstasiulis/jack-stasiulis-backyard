@@ -23,6 +23,13 @@
         top: 22.5rem;
         border-radius: 5px;
 
+        @include tablet{
+            top: 10rem;
+            left: inherit;
+            right: 1rem;
+            padding: 0.4rem;
+        }
+
         &--text{
             font-weight: 600;
             color: $BYWhite;
