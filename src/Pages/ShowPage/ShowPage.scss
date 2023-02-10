@@ -10,6 +10,21 @@
     @include tablet{
         flex-direction: row;
     }
+
+    &__buyTicket{
+        height: 1rem;
+        color: blue;
+        z-index: 1;
+        position: absolute;
+        margin: 1rem;
+        display: flex;
+        left: 0;
+
+        &--text{
+            color: red;
+            
+        }
+    }
     
 }
 
