@@ -12,17 +12,24 @@
     }
 
     &__buyTicket{
-        height: 1rem;
-        color: blue;
-        z-index: 1;
+        padding: 0.3rem;
+        background: $BYRed;
+        z-index: 2;
         position: absolute;
         margin: 1rem;
         display: flex;
-        left: 0;
+        justify-content: center;
+        left: 16.5rem;
+        top: 22.5rem;
+        border-radius: 5px;
 
         &--text{
-            color: red;
-            
+            font-weight: 600;
+            color: $BYWhite;
+
+            &:hover{
+                color: red;
+            }
         }
     }
     
