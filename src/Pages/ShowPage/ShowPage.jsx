@@ -79,6 +79,10 @@ function ShowPage (props) {
     return(
         <div className='showpage'>
 
+            <div className='buyTicket'>
+                <h3>Buy Tickets</h3>
+            </div>
+
             <div>
                 {/* Using the large show card for single show page */}
                 {showData && 
