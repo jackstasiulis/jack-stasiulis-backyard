@@ -29,6 +29,10 @@
             right: 1rem;
             padding: 0.4rem;
         }
+        @include desktop{
+            padding: 0.5rem;
+            top: 12.7rem;
+        }
 
         &:hover &--text{
                 color: red;
@@ -39,7 +43,6 @@
             color: $BYWhite;
         }
     }
-    
 }
 
 .map-container{
