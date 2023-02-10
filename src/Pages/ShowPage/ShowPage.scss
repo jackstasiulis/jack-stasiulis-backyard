@@ -30,13 +30,13 @@
             padding: 0.4rem;
         }
 
+        &:hover &--text{
+                color: red;
+        }
+
         &--text{
             font-weight: 600;
             color: $BYWhite;
-
-            &:hover{
-                color: red;
-            }
         }
     }
     
