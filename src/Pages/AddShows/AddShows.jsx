@@ -4,9 +4,12 @@ import toast from 'react-hot-toast';
 import { v4 as uuidv4 } from "uuid";
 import { useState } from 'react';
 import ShowCard from '../../Components/ShowCard/ShowCard'
+import { useNavigate } from 'react-router-dom';
 
 
 function AddShows ({user}) {
+
+    const homeNav = useNavigate();
 
 // Function for adding shows form
 function addShowForm (e) {
@@ -45,6 +48,7 @@ function addShowForm (e) {
                 e.target.descriptionText.value = '';
 // Toast success message (styling on App.jsx)
                 toast.success('Show posted')
+                homeNav('/')
         }
 }
 
