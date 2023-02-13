@@ -7,7 +7,7 @@ import ShowCard from '../../Components/ShowCard/ShowCard'
 import { useNavigate } from 'react-router-dom';
 
 
-function AddShows ({user}) {
+function AddShows ({user, refreshDiscover}) {
 
     const homeNav = useNavigate();
 
@@ -49,6 +49,7 @@ function addShowForm (e) {
 // Toast success message (styling on App.jsx)
                 toast.success('Show posted')
                 homeNav('/')
+                refreshDiscover();
         }
 }
 

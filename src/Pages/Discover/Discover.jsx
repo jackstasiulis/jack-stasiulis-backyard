@@ -8,11 +8,6 @@ import Carousel from '../../Components/Carousel/Carousel';
 
 function Discover (props) {
 
-const refresh = () => {
-    window.location.reload();
-}
-
-
 // Image URLs for the discover carousel
 const slides = [
     {url: 'https://res.cloudinary.com/do5k651qd/image/upload/v1670570548/Screen_Shot_2022-11-16_at_10.41.43_PM_tvoox9.png'},

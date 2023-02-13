@@ -20,6 +20,10 @@ function App() {
 const navigate = useNavigate();
 
 
+const refreshDiscover = () => {
+  window.location.reload('/');
+}
+
 // Function to register a user!
 const handleSignUp = (e) => {
   e.preventDefault();
@@ -172,7 +176,7 @@ const handleSignOut = () => {
 
               <Route path='/' element={<Discover allShows={allShows} getShows={getShows} user={user} />} />
               <Route path='/shows/:showId' element={<ShowPage user={user} />} />
-              <Route path='/addshows' element={<AddShows user={user} />} />
+              <Route path='/addshows' element={<AddShows user={user} refreshDiscover={refreshDiscover} />} />
               <Route path='/artists' element={<UnderConstruction />} />
               <Route path='/venues' element={<UnderConstruction />} />
 
