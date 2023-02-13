@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.scss'
 import Navbar from './Components/Navbar/Navbar'
 import Discover from './Pages/Discover/Discover';
