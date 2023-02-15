@@ -18,7 +18,7 @@ function App() {
 
 const navigate = useNavigate();
 
-
+// Function to refresh discover on page load after adding a show
 const refreshDiscover = () => {
   window.location.reload('/');
 }
