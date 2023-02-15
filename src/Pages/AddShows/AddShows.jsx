@@ -48,6 +48,7 @@ function addShowForm (e) {
                 e.target.descriptionText.value = '';
 // Toast success message (styling on App.jsx)
                 toast.success('Show posted')
+// Calling navigation to home and function to refresh discover(function found on app.jsx line 22)
                 homeNav('/')
                 refreshDiscover();
         }
