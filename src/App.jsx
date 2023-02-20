@@ -154,8 +154,6 @@ const handleSignOut = () => {
     },[])
 
 
-
-
   return (
   //BrowserRouter moved to index.js
 
