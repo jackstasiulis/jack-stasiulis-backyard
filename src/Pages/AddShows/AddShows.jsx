@@ -109,116 +109,116 @@ function addShow (show_id, image, artistText, dateText, venueText, addressText,
     const [genrePreview, setGenrePreview] = useState();
 
     return(
-        <>
-            <h2 className='form__title'>Add a Show</h2>
-            
-                <div className='addShows__wrapper'>
-                    <div className='form__container'>
-                        
-                        {/* Form calls form function on submit */}
-                        <form className='form' action="" onSubmit={addShowForm}>
-                            <div className='form__cont'>
-                                <div className='form__subCont'>
+    <>
+        <h2 className='form__title'>Add a Show</h2>
+        
+        <div className='addShows__wrapper'>
+            <div className='form__container'>
+                
+                {/* Form calls form function on submit */}
+                <form className='form' action="" onSubmit={addShowForm}>
+                    <div className='form__cont'>
+                        <div className='form__subCont'>
 
-                                    <label className='form__label' htmlFor="">Cover Photo</label>
-                                      
-                                      <div className='file__upload'>
-                                            {/* Input field for image sends data to Cloudinary */}
-                                            <div>
-                                                <label className='file__upload--label' htmlFor="imageUploadID">Choose Image</label>
-                                                <input id='imageUploadID' class='file__upload' type="file" name='image' onChange={(e) => {
-                                                    setImageSelected(e.target.files[0])
-                                                    }}/>
-                                            </div>
-                                            <div>
-                                                <button className='file__upload--label' onClick={uploadImage}>Click to Upload</button>
-                                            </div>
-                                        </div>
-
-                                    {/* Remaining text inputs - some with onChange for live preview */}
-                                    <label className='form__label' htmlFor="">Artist</label>
-                                        <input className='form__input' type="text" placeholder='What is your artist name?' name='artistText' onChange={(e) => setArtistPreview(e.target.value)}/>
-                                    <label className='form__label' htmlFor="">Date</label>
-                                        <input className='form__input' type="text" placeholder='Which date are you playing?' name='dateText' onChange={(e) => setDatePreview(e.target.value)}/>
-                                    <label className='form__label' htmlFor="">Venue</label>
-                                        <input className='form__input' type="text" placeholder='What is the name of your venue?' name='venueText' onChange={(e) => setVenuePreview(e.target.value)}/>
-                                    <label className='form__label' htmlFor="">Address</label>
-                                        <input className='form__input' type="text" placeholder='What is the street address?' name='addressText' />
+                            <label className='form__label' htmlFor="">Cover Photo</label>
+                                
+                                <div className='file__upload'>
+                                    {/* Input field for image sends data to Cloudinary */}
+                                    <div>
+                                        <label className='file__upload--label' htmlFor="imageUploadID">Choose Image</label>
+                                        <input id='imageUploadID' class='file__upload' type="file" name='image' onChange={(e) => {
+                                            setImageSelected(e.target.files[0])
+                                            }}/>
+                                    </div>
+                                    <div>
+                                        <button className='file__upload--label' onClick={uploadImage}>Click to Upload</button>
+                                    </div>
                                 </div>
 
-                                <div className='form__subCont'>
-                                    <label className='form__label' htmlFor="">Time</label>
-                                        <input className='form__input' type="text" placeholder='What time do the doors open?' name='doorsText' onChange={(e) => setDoorsPreview(e.target.value)}/>
-                                    <label className='form__label' htmlFor="">Choose a genre</label>
-                                    
-                                    {/* Radio inputs, all with onChange for live preview */}
-                                    <div className="radio-toolbar">
+                            {/* Remaining text inputs - some with onChange for live preview */}
+                            <label className='form__label' htmlFor="">Artist</label>
+                                <input className='form__input' type="text" placeholder='What is your artist name?' name='artistText' onChange={(e) => setArtistPreview(e.target.value)}/>
+                            <label className='form__label' htmlFor="">Date</label>
+                                <input className='form__input' type="text" placeholder='Which date are you playing?' name='dateText' onChange={(e) => setDatePreview(e.target.value)}/>
+                            <label className='form__label' htmlFor="">Venue</label>
+                                <input className='form__input' type="text" placeholder='What is the name of your venue?' name='venueText' onChange={(e) => setVenuePreview(e.target.value)}/>
+                            <label className='form__label' htmlFor="">Address</label>
+                                <input className='form__input' type="text" placeholder='What is the street address?' name='addressText' />
+                        </div>
 
-                                        <input type="radio" id="HipHop" name="genreSelection" value="Hip Hop / R & B" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="HipHop">Hip Hop / R & B</label>
+                        <div className='form__subCont'>
+                            <label className='form__label' htmlFor="">Time</label>
+                                <input className='form__input' type="text" placeholder='What time do the doors open?' name='doorsText' onChange={(e) => setDoorsPreview(e.target.value)}/>
+                            <label className='form__label' htmlFor="">Choose a genre</label>
+                            
+                            {/* Radio inputs, all with onChange for live preview */}
+                            <div className="radio-toolbar">
 
-                                        <input type="radio" id="Folk" name="genreSelection" value="Folk" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Folk">Folk</label>
+                                <input type="radio" id="HipHop" name="genreSelection" value="Hip Hop / R & B" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="HipHop">Hip Hop / R & B</label>
 
-                                        <input type="radio" id="Rock" name="genreSelection" value="Rock" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Rock">Rock</label> 
+                                <input type="radio" id="Folk" name="genreSelection" value="Folk" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Folk">Folk</label>
 
-                                        <input type="radio" id="Rap" name="genreSelection" value="Rap" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Rap">Rap</label> 
+                                <input type="radio" id="Rock" name="genreSelection" value="Rock" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Rock">Rock</label> 
 
-                                        <input type="radio" id="Acoustic" name="genreSelection" value="Acoustic" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Acoustic">Acoustic</label> 
+                                <input type="radio" id="Rap" name="genreSelection" value="Rap" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Rap">Rap</label> 
 
-                                        <input type="radio" id="Electronic" name="genreSelection" value="Electronic" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Electronic">Electronic</label> 
+                                <input type="radio" id="Acoustic" name="genreSelection" value="Acoustic" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Acoustic">Acoustic</label> 
 
-                                        <input type="radio" id="Country" name="genreSelection" value="Country" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Country">Country</label>
+                                <input type="radio" id="Electronic" name="genreSelection" value="Electronic" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Electronic">Electronic</label> 
 
-                                        <input type="radio" id="Grunge" name="genreSelection" value="Grunge" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Grunge">Grunge</label> 
+                                <input type="radio" id="Country" name="genreSelection" value="Country" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Country">Country</label>
 
-                                        <input type="radio" id="Blues" name="genreSelection" value="Blues" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Blues">Blues</label> 
+                                <input type="radio" id="Grunge" name="genreSelection" value="Grunge" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Grunge">Grunge</label> 
 
-                                        <input type="radio" id="Jazz" name="genreSelection" value="Jazz" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Jazz">Jazz</label> 
+                                <input type="radio" id="Blues" name="genreSelection" value="Blues" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Blues">Blues</label> 
 
-                                        <input type="radio" id="Lo-Fi" name="genreSelection" value="Lo-Fi" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Lo-Fi">Lo-Fi</label> 
+                                <input type="radio" id="Jazz" name="genreSelection" value="Jazz" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Jazz">Jazz</label> 
 
-                                        <input type="radio" id="Punk" name="genreSelection" value="Punk" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Punk">Punk</label> 
+                                <input type="radio" id="Lo-Fi" name="genreSelection" value="Lo-Fi" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Lo-Fi">Lo-Fi</label> 
 
-                                        <input type="radio" id="Pop" name="genreSelection" value="Pop" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Pop">Pop</label> 
+                                <input type="radio" id="Punk" name="genreSelection" value="Punk" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Punk">Punk</label> 
 
-                                        <input type="radio" id="Indie-Pop" name="genreSelection" value="Indie-Pop" onChange={(e) => setGenrePreview(e.target.value)}/>
-                                        <label htmlFor="Indie-Pop">Indie-Pop</label> 
-                                    </div>
+                                <input type="radio" id="Pop" name="genreSelection" value="Pop" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Pop">Pop</label> 
 
-                                    <label className='form__label' htmlFor="">Description</label>
-                                        <textarea className='form__input form__textArea' type="text" placeholder='Describe your show/artist..' name='descriptionText' />
-                                    
-                                    <div className='form__button--container'>
-                                        <button className='form__button'>SUBMIT</button>
-                                    </div>
-
-                                </div>
+                                <input type="radio" id="Indie-Pop" name="genreSelection" value="Indie-Pop" onChange={(e) => setGenrePreview(e.target.value)}/>
+                                <label htmlFor="Indie-Pop">Indie-Pop</label> 
                             </div>
-                        </form>
+
+                            <label className='form__label' htmlFor="">Description</label>
+                                <textarea className='form__input form__textArea' type="text" placeholder='Describe your show/artist..' name='descriptionText' />
+                            
+                            <div className='form__button--container'>
+                                <button className='form__button'>SUBMIT</button>
+                            </div>
+
+                        </div>
                     </div>
-                {/* Live preview uses discover page show card with props from this page for values */}
-                <ShowCard 
-                image={previewImage}
-                artist={artistPreview}
-                date={datePreview}
-                venue={venuePreview}
-                doors={doorsPreview}
-                genre={genrePreview}
-                 />
+                </form>
             </div>
-        </>
+            {/* Live preview uses discover page show card with props from this page for values */}
+            <ShowCard 
+            image={previewImage}
+            artist={artistPreview}
+            date={datePreview}
+            venue={venuePreview}
+            doors={doorsPreview}
+            genre={genrePreview}
+                />
+        </div>
+    </>
     )
 }
 
