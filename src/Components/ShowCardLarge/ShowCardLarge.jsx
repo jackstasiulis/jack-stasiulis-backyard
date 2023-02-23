@@ -1,5 +1,4 @@
 import './ShowCardLarge.scss';
-import seeingStrangers from '../../assets/seeingStrangers.png';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
