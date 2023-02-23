@@ -9,6 +9,7 @@ const navigate = useNavigate();
         <div className='signin'>
             <h2 className='form__title'>Sign In</h2>
                 <div className='form__container'>
+                    {/* If the user is NOT signed in, this form is allowed to be displayed */}
                     {!props.signedIn ? (
                     <form className='form' onSubmit={props.handleSignIn} >
                         <div className='form__cont'>

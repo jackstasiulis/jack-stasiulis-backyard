@@ -41,6 +41,7 @@ const handleSignUp = (e) => {
     password: e.target.password.value
   })
   .then((res) => {
+    // if our jwt token was generated properly, load the profile with its data
     if(res.data.token) {
       loadProfile(res.data.token);
       localStorage.setItem('jwt_token', res.data.token);
