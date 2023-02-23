@@ -1,8 +1,5 @@
 import './Discover.scss';
-import axios from 'axios';
 import ShowCard from '../../Components/ShowCard/ShowCard';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Carousel from '../../Components/Carousel/Carousel';
 
 
