@@ -103,12 +103,10 @@ function Navbar(props) {
                     </div>
                 </div>
                 
-                <a className='navbar__logo' href="">
+                <a className='navbar__logo' href="/">
                     <img className='navbar__logo' src={LogoR} alt="" />
                 </a>
                     
-                
-
             </nav>
         </>
     )
