@@ -4,7 +4,6 @@ import { useState } from 'react';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
 
 function Navbar(props) {
 
