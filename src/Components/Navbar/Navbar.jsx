@@ -51,7 +51,7 @@ function Navbar(props) {
                             }><button className='navbar__menu__option'>venues</button>
                         </NavLink>
                         
-                        {/* for addshows link */}
+                        {/* for addshows link - checks if user is signed in to access adding a show */}
                         {props.signedIn ? (
                             <NavLink to='/addshows' className={({isActive}) => 
                                 'navbar__menu__option' + (isActive || window.location.pathname === '/addshows' ? '--active' : null)
