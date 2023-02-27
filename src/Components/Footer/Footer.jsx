@@ -10,7 +10,7 @@ function Footer () {
                     <img className='footer__elements--logo' src={LogoRcrop} alt="" />
                     <p className='footer__elements--shit'>find <u><em>your</em></u> sh*t</p>
 
-                    <p className='footer__elements--text'>Backyard © 2022</p>
+                    <p className='footer__elements--text'>Backyard © 2023</p>
                 </div>
             </div>
         </div>
