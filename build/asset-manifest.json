@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.1e002646.css",
-    "main.js": "/static/js/main.538eead9.js",
+    "main.css": "/static/css/main.1ffdda7c.css",
+    "main.js": "/static/js/main.0dc5e953.js",
     "static/media/seeingStrangers.png": "/static/media/seeingStrangers.3e5b88c83af5c981d725.png",
     "static/media/Backyard-logo-red.png": "/static/media/Backyard-logo-red.7daabb71acb23ba870ab.png",
     "static/media/Backyard-logo-white.png": "/static/media/Backyard-logo-white.338b076a26cda6c272f1.png",
     "static/media/Backyard-logo-black.png": "/static/media/Backyard-logo-black.9e87c29a7ccfd75cc42b.png",
     "index.html": "/index.html",
-    "main.1e002646.css.map": "/static/css/main.1e002646.css.map",
-    "main.538eead9.js.map": "/static/js/main.538eead9.js.map"
+    "main.1ffdda7c.css.map": "/static/css/main.1ffdda7c.css.map",
+    "main.0dc5e953.js.map": "/static/js/main.0dc5e953.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e002646.css",
-    "static/js/main.538eead9.js"
+    "static/css/main.1ffdda7c.css",
+    "static/js/main.0dc5e953.js"
   ]
 }
